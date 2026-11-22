@@ -4,7 +4,7 @@ Usage:
     python check_persona.py output/persona-1.md
 
 Prints a JSON verdict and exits 0 on PASS, 1 on FAIL. The rules are the team's quality bar for a
-research persona (Assessment 2, Creativity and Innovation):
+research persona:
 
 1. every required section is present, in order
 2. each of the research patterns P1 to P5 is used at least once

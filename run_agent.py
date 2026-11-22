@@ -6,7 +6,7 @@ Needs Claude Code installed and logged in (`claude` on the PATH). The agent can 
 write files and run the checker; it cannot use the web. Every step it takes is saved to
 runs/<time>/steps.jsonl (the raw event stream) and to memory/log.md (the agent's own log).
 At the end this script re-runs the checker itself on every persona, so the result does not depend
-on what the agent says about its own work.
+on what the agent says about its own work, and rebuilds the demo page (docs/index.html).
 """
 import datetime
 import json
@@ -33,7 +33,7 @@ def main():
     goal = (HERE / "AGENT.md").read_text(encoding="utf-8")
     cmd = [claude, "-p", "--model", MODEL, "--output-format", "stream-json", "--verbose",
            "--permission-mode", "acceptEdits", "--allowedTools", *ALLOWED]
-    print(f"agent running ({MODEL}), log: {run_dir / 'steps.jsonl'}")
+    print(f"agent running ({MODEL}), log: {(run_dir / 'steps.jsonl').relative_to(HERE).as_posix()}")
     with open(run_dir / "steps.jsonl", "w", encoding="utf-8") as log:
         proc = subprocess.run(cmd, input=goal, text=True, encoding="utf-8", cwd=HERE,
                               stdout=log, stderr=subprocess.PIPE)
@@ -62,6 +62,7 @@ def main():
     ok &= (HERE / "output" / "report.md").exists()
     for d in ("output", "memory"):
         shutil.copytree(HERE / d, run_dir / d)
+    subprocess.run([sys.executable, "build_demo.py"], cwd=HERE, capture_output=True)
     print("RESULT:", "PASS" if ok else "FAIL")
     sys.exit(0 if ok else 1)
 

@@ -1,55 +1,133 @@
-# JTBD Persona Agent - Team 3 (Voltia)
+# JTBD Persona Agent
 
-Level 3 of Assessment 2 (Creativity and Innovation, EDEM). Instead of chatting with an AI, we give an agent a goal and tools, and it works on its own until the goal is reached. We review the result.
+**An autonomous agent that turns qualitative field research into user personas, and checks its own work until it passes.**
 
-## The goal
+[![Tests](https://github.com/javiersanzg/jtbd-persona-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/javiersanzg/jtbd-persona-agent/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-1B1B1F)
+![Agent](https://img.shields.io/badge/agent-Claude%20Code%20headless-0B5D5A)
+![License](https://img.shields.io/badge/license-MIT-1B1B1F)
 
-Read our field research and build the three personas of our challenge, one for each point of the line we researched (a client with a very slow file, a user who follows many files with ease, and a client with a normal file), check each one against our quality rules, fix it until it passes, and write a report that compares them.
+**[Live demo of the last run](https://javiersanzg.github.io/jtbd-persona-agent/)**: the step-by-step trace, the three personas and the agent's conclusions, in one page. No install needed.
 
-Challenge: Voltia clients with an Iberdrola file or an electrical certificate in progress do not know what is happening with it.
+---
 
-## The four parts of the agent (slide 8)
+## Why
 
-| Part | In this agent |
+Writing a persona by hand takes weeks of synthesis. Asking a chatbot takes a minute, but you get a stereotype: invented facts, generic pains, and a list of app ideas nobody asked for.
+
+This agent sits in between. It works only from your research, it has to show where every line comes from, and a deterministic checker decides when a persona is good enough. The model does the synthesis; the code keeps it honest.
+
+## What it does
+
+Given a folder of interview and observation notes, the agent:
+
+1. **Extracts the patterns** (P1 to P5), each with a verbatim quote, a Job to Be Done and an insight.
+2. **Writes one persona per point of the research line**: the extreme user at the hard end, the extreme user at the easy end, and a regular user.
+3. **Runs the checker** on each persona, reads the verdict and fixes exactly what failed, up to three times.
+4. **Writes a report** comparing the personas: shared jobs, what changes along the line, and which persona to design for first.
+5. **Logs every step** (think, act, observe, reflect) as it goes, and the runner rebuilds the demo page.
+
+## How it works
+
+```mermaid
+flowchart LR
+    R[research/<br/>field notes] --> A
+    G[AGENT.md<br/>goal + rules] --> A
+    subgraph A[Agent loop: Claude Code, headless]
+        T[Think] --> W[Act: write persona]
+        W --> O[Observe: run checker]
+        O -->|FAIL| F[Reflect: fix what failed]
+        F --> O
+    end
+    O -->|PASS| P[output/<br/>personas + report]
+    A --> M[memory/log.md<br/>step trace]
+    P --> V[run_agent.py<br/>re-checks every file]
+    V --> D[docs/index.html<br/>demo page]
+```
+
+| Part | Here |
 |---|---|
-| The Goal | `AGENT.md`: the brief, measurable, with constraints (only our research, no web, no solutions, max 600 words) and a clear end: three personas that pass the checker and a report |
-| The Brain | Claude (Sonnet) running in Claude Code headless mode. It decides the next step by itself |
-| The Tools | read files (`research/`), write files (`output/`, `memory/`), and run `check_persona.py`, our quality checker. No web access |
-| The Memory | `memory/log.md`: the agent writes one line per step (THINK, ACT, OBSERVE, REFLECT) while it works. The runner also saves the full event stream in `runs/<time>/steps.jsonl` |
+| Goal | `AGENT.md`: a measurable brief with a clear end state and hard constraints |
+| Brain | Claude (Sonnet) in Claude Code headless mode: it picks its own next step |
+| Tools | read files, write to `output/` and `memory/`, run `check_persona.py`. No web access |
+| Memory | `memory/log.md`, written by the agent during the run |
 
-## The decision loop
+### The checker is the point
 
-THINK which patterns define this persona, ACT by writing it, OBSERVE the checker verdict, REFLECT and fix exactly the problems the checker lists. It stops a persona when it passes, or after three failed fixes.
+`check_persona.py` is plain Python with no model inside, so the agent cannot talk its way past it. A persona passes only if:
 
-`check_persona.py` is what makes the loop honest: the agent cannot decide by itself that a persona is good. It checks that all sections are there and in order, that the five patterns are used, that a "Based on" list links each section to a pattern, that there are no solutions (this is research, not ideation), that invented details carry an asterisk, and that the persona fits one page. At the end, `run_agent.py` runs the checker again on every file, so the final verdict does not depend on what the agent says about its own work.
+- every required section is present, in order
+- all five research patterns are used
+- a *Based on* list traces each section back to a pattern
+- it proposes no solutions (research, not ideation)
+- every detail that is not in the research is marked with `*`
+- it fits on one page (600 words or fewer)
 
-## How to test it
+After the agent stops, `run_agent.py` runs the checker again on every file. The final verdict never depends on what the agent says about its own work.
 
-1. Install Claude Code (https://code.claude.com) and log in once with `claude`.
-2. In this folder, run: `python run_agent.py`
-3. Wait a few minutes. The script prints the verdict of each persona and `RESULT: PASS` or `FAIL`.
-4. Read the results in `output/` (patterns, three personas, report) and the step log in `memory/log.md`.
+## Quick start
 
-To test the checker alone: `python check_persona.py output/persona-1-hard-end.md`
+Requires Python 3.10+ and [Claude Code](https://code.claude.com), logged in once with `claude`. No other dependencies.
 
-## Files
+```bash
+git clone https://github.com/javiersanzg/jtbd-persona-agent.git
+cd jtbd-persona-agent
+python run_agent.py
+```
 
-| File | What it is |
-|---|---|
-| `AGENT.md` | the goal and rules given to the agent |
-| `run_agent.py` | starts the agent, saves its steps and checks the results |
-| `check_persona.py` | the quality checker the agent uses as a tool |
-| `research/field_notes.md` | our field research: the only input |
-| `output/` | what the agent produced in its last run |
-| `memory/log.md` | the agent's own step log |
-| `runs/` | the full record of each run |
+```text
+agent running (sonnet), log: runs/2026-11-22_2228/steps.jsonl
+agent finished after 19 tool calls
+PASS persona-1-hard-end.md (454 words) []
+PASS persona-2-easy-end.md (436 words) []
+PASS persona-3-regular.md (401 words) []
+RESULT: PASS
+```
 
-## Risks we considered (slide 7)
+Check a single persona, or rebuild the demo page from the last run:
 
-- Cost runaway: the agent has a fixed goal and stops after three failed fixes per persona.
-- Black box: every step is logged in `memory/log.md` and `runs/`.
-- Accountability: the agent only drafts. The team reviews the personas before using them, and the checker is code we wrote and can read.
+```bash
+python check_persona.py output/persona-1-hard-end.md
+python build_demo.py
+```
 
-## About the data
+Use it on your own research: replace `research/field_notes.md` and the challenge paragraph in `AGENT.md`.
 
-The company name is changed to Voltia, a fictional name for a small electrical installation company in Valencia, and the names of its staff are changed too. The interviews in `research/` are simulated: they were built from real conversations with the company, for a university assignment. The raw event stream of each run (`runs/<time>/steps.jsonl`) is kept locally and not published.
+## Example output
+
+From the last run (full text in [`output/`](output/) and on the [demo page](https://javiersanzg.github.io/jtbd-persona-agent/)):
+
+> **Rafael, the restaurant owner:** *"Every week I asked: is there news? And every week: we are waiting for Iberdrola."*
+> Hard end of the line: a 19-month file. Trust sits with one person (P2), forgotten photos turn doubt about one step into doubt about the whole job (P4), and the silence, not the wait, is what hurts (P1).
+
+The agent's own conclusion: *across the line, the distance is not in the length of the wait but in how much the person knows about it.*
+
+## Project structure
+
+```text
+AGENT.md            the goal and rules given to the agent
+run_agent.py        starts the agent, records the run, re-checks the results, rebuilds the demo
+check_persona.py    the deterministic quality checker (the agent's tool)
+build_demo.py       renders docs/index.html from output/ and memory/
+research/           input: interview and observation notes
+output/             patterns, personas and report of the last run
+memory/log.md       the agent's step log of the last run
+runs/               a copy of every run's output and log
+docs/               the demo page, served by GitHub Pages
+tests/              unit tests for the checker
+```
+
+## Design decisions
+
+- **A deterministic judge instead of a second model.** A model grading a model can be argued with; a script cannot. It also makes the loop cheap and reproducible.
+- **Bounded autonomy.** Three fix attempts per persona, a fixed write scope and no web access keep cost and blast radius small.
+- **Every step on the record.** The trace makes the run explainable to someone who was not there, which is what the demo page is for.
+- **No solutions.** Personas are research artefacts. Ideas belong to a later step, so the checker rejects them.
+
+## Background
+
+Built for a design-thinking course at EDEM (Valencia), on a real challenge from a small electrical installation company: clients waiting for utility paperwork that can take from two weeks to two years. The company and staff names are changed, and the interview notes are simulated from real conversations with the company.
+
+## License
+
+[MIT](LICENSE). Icons by [Phosphor](https://phosphoricons.com) (MIT).

@@ -1,4 +1,4 @@
-# Field Notes - Team 3 Voltia
+# Field Notes - Voltia
 
 *Simulated interviews: built from what a team member told us on 05/10/2026 and from how distributor files work.*
 
