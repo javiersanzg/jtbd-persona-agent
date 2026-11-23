@@ -20,7 +20,7 @@ Real sources only. Every quote below is copied word for word from its source (Sp
 | 4 | pantaleon, new supply rejected again and again | Extreme user, hard end | foro.clubtesla.es | 19/09/2024 |
 | 5 | Tevi62, self-consumption file rejected four times | Extreme user, hard end | nergiza.com | 07-10/10/2023 |
 | 6 | N. M., client of Voltia whose job went well | Extreme user, easy end | Google review | 03/05/2026 |
-| 7 | Eva Mancera, CEO of i-DE | Expert | energias-renovables.com | 26/09/2024 |
+| 7 | The CEO of i-DE | Expert | energias-renovables.com | 26/09/2024 |
 | 8 | Joan Herrera, El Prat city council, 15 installations | Expert (manages many files) | energias-renovables.com | 21/06/2023 |
 
 ---
@@ -108,9 +108,9 @@ Real sources only. Every quote below is copied word for word from its source (Sp
 
 ---
 
-## 7. Expert: Eva Mancera, CEO of i-DE
+## 7. Expert: the CEO of i-DE
 
-**WHO:** Eva Mancera, CEO of i-DE, Iberdrola's distribution company · **WHERE:** interview «Las redes son el gigante silencioso», https://www.energias-renovables.com/entrevistas/las-redes-son-el-gigante-silencioso-20240926 · **WHEN:** 26/09/2024
+**WHO:** the CEO of i-DE, Iberdrola's distribution company · **WHERE:** interview «Las redes son el gigante silencioso», https://www.energias-renovables.com/entrevistas/las-redes-son-el-gigante-silencioso-20240926 · **WHEN:** 26/09/2024
 
 | WHAT I SAW | WHAT THEY SAID |
 |---|---|
