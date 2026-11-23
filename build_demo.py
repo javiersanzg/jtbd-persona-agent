@@ -30,7 +30,30 @@ def icon(name, label=None):
     return svg.replace("<svg ", f"<svg {attrs} ", 1)
 
 
+def _translations():
+    """Spanish verbatim -> English translation, as written in the research: «original» (translation)."""
+    src = HERE / "research" / "field_notes.md"
+    text = src.read_text(encoding="utf-8") if src.exists() else ""
+    return {o.strip(): t.strip() for o, t in re.findall(r"«(.+?)»\s*\(([^)]+)\)", text)}
+
+
+TRANSLATIONS = _translations()
+
+
+def english(quote):
+    """The research's English translation of a Spanish verbatim, or None. A quote cut with [...] matches the
+    research quote that holds every piece, and shows that quote's whole translation."""
+    q = quote.strip().strip("«»")
+    if q in TRANSLATIONS:
+        return TRANSLATIONS[q]
+    parts = [p.strip(" .,") for p in q.split("[...]") if p.strip(" .,")]
+    hits = [t for o, t in TRANSLATIONS.items() if parts and all(p.lower() in o.lower() for p in parts)]
+    return hits[0] if len(hits) == 1 else None
+
+
 def inline(t):
+    # The page is in English: every Spanish verbatim is shown in its English translation from the research.
+    t = re.sub(r"«(.+?)»", lambda m: f"“{english(m.group(1)) or m.group(1)}”", t)
     t = html.escape(t, quote=False)
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
@@ -224,7 +247,7 @@ def build():
   <header class="ph">
     <p class="pos-l">{pos} &middot; {sub}</p>
     <h3>{html.escape(name.replace("*", ""))}</h3>
-    {f"<blockquote>&ldquo;{inline(quote)}&rdquo;</blockquote>" if quote else ""}
+    {f"<blockquote>&ldquo;{inline(english(quote.rstrip('*')) or quote)}&rdquo;</blockquote>" if quote else ""}
     <p class="meta">{stamp}<span>{v["words"]} words</span><span>checked by <code>check_persona.py</code></span></p>
   </header>
   <div class="pbody">{md(body, shift=2)}</div>
