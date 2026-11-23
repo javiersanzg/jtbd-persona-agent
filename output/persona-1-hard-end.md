@@ -1,49 +1,44 @@
-# Lucia, 41* — «Está todo perfectamente realizado y no puedo tener luz por este trámite»
+# Carmen*: «Llevo así desde el día 3 de octubre de 2023, pasando frío y con la única luz de unas bombillas, no funciona nada»
 
 ## Profile
-- Lives in a new house in a town near Valencia*.
-- Client of Voltia, who did the installation.
-- Her new supply file with i-DE is stuck.
+Carmen*, 54*, lives in a house near Valencia*. She waits for a power increase. Her case is the extreme one seen in the forum posts.
 
 ## Background
-Lucia built the house with her family*. Voltia finished the electrical work and it is "perfectly done". The file with the distributor has been open for many months*. Voltia told her at the start that it might take long*, and she believed it was a matter of weeks*.
+The installer finished the work. The file stayed between the retailer and the distributor, and months passed. She worked in a school office*.
 
 ## Goals
-- Get electricity in the house.
-- Understand why the file does not move.
-- Stop spending her days on this.
+- Have working electricity again (P3).
+- Know who is responsible for her file (P2).
+- Stop spending hours on the phone (P1).
 
 ## Pains and frustrations
-- The retailer says the distributor rejects the request, and the distributor says the retailer does (P2).
-- Documents come back rejected, even after she sends them again (P3).
-- She calls every other day and hears the same answer (P5).
-- Nobody tells her whether two months or two years is normal (P1).
-- She lives with no power and pays rent elsewhere*.
+- «La comercializadora me dice que la distribuidora rechaza la solicitud y la distribuidora que la comercializadora» (P2).
+- Every call gets the same answer (P1).
+- Her papers come back rejected, again (P4).
+- She does not know if her wait is normal (P3).
 
 ## Jobs to be done
-- Functional: know who holds my file and what is missing, so I can act.
-- Personal: stop feeling helpless and stop chasing people.
-- Social: show my family that the delay is not my fault*.
+- Functional: find out the exact state of her file and what is missing (P1, P4).
+- Personal: stop feeling helpless and abandoned (P2).
+- Social: not look foolish to her family* for choosing this work (P5).
 
 ## A day in their life during the wait
-Morning: she phones the retailer*. Midday: she phones the distributor* and then Voltia. She checks her email for any reply*. Afternoon: she looks for the document they asked for and sends it again*. Evening: she tells her partner "no news" and reads forums about other people with the same problem*. About five hours go to this on bad days (P5).
+Morning*: cold house, a few light bulbs. She phones the retailer, then the distributor* (P1). At lunch she writes to Voltia*. In the evening she checks her email* and finds nothing. She keeps a folder with every paper sent* because she fears another rejection (P4).
 
 ## How they look for news today
-- Phone calls, first to the retailer, then to the distributor, then to Voltia (P2).
-- Voltia is the only party that picks up and is honest with her* (P4).
-- Online forums, to see if her wait is normal (P1).
-- She gets no news on her own; she has to ask.
+She calls every other day (P1). She calls Voltia first because it is the one who answers*. At night she reads forums* to see if others wait as long (P3).
 
 ## What makes them trust or doubt an installer
-- Trust: Voltia tells her the truth, even when the news is bad (P4).
-- Trust: Voltia did the work well and on time* (P4).
-- Doubt: if Voltia cannot say where the file is, she starts to think Voltia has lost control of it (P2).
-- Doubt: each new call that ends with "we do not know" (P5).
+She doubts anyone who only says "it depends". She trusts the one who says early that the file may take long (P5). She loses trust when each party points at another (P2).
 
 ## Based on
-- Profile and Background: P1 (wait with no known length)
-- Goals and Jobs to be done: P2 (file stuck between parties)
-- Pains: P3 (rejected documents), P5 (cost of not knowing)
-- Trust and doubt: P4 (honesty and results)
+- Profile: P3, P2
+- Background: P2, P4
+- Goals: P1, P2, P3
+- Pains: P1, P2, P3, P4
+- Jobs to be done: P1, P4, P5
+- Day in their life: P1, P4
+- News today: P1, P3
+- Trust: P2, P5
 
-*Not in the research: invented to make her real.
+*Not in the research.

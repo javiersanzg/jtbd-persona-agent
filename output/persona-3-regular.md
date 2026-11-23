@@ -1,47 +1,44 @@
-# Carmen, 38* — «¿Esto es normal, o debería preguntar?»*
+# Elena*: «Está todo perfectamente realizado y no puedo tener luz por este trámite»
 
 ## Profile
-- Teacher living in a flat in Valencia*.
-- Client of Voltia for a solar self-consumption installation*.
-- Her file with i-DE is open and moving at a normal pace.
+Elena*, 38*, has a new home in Valencia* with a new supply. Her file is normal: not days, not years. The quote is from a forum user, Julio21, whose case is similar.
 
 ## Background
-Carmen chose Voltia after a friend recommended them (P4). Voltia told her the file may take long and was transparent about it (P1). The installation is finished. She had to sign some papers, and she signed them a week late* (P3). She does not know much about how the file works.
+A friend recommended Voltia (P5). The installation is done. Now the file is with the distributor, and nobody tells her how long it will take (P3).
 
 ## Goals
-- Start using her solar panels as soon as the file allows it.
-- Know roughly when that will be.
-- Not give the file more time than needed.
+- Get the light on by a date she can plan around (P3).
+- Know what is happening, without calling (P1).
+- Not make a mistake with her papers (P4).
 
 ## Pains and frustrations
-- She cannot tell if three weeks is fast or slow (P1).
-- She does not know what is waiting on her and what is waiting on Iberdrola (P2).
-- A request for one more paper arrives with no warning (P3).
-- She feels she is bothering Voltia when she asks, but she asks anyway (P5).
+- She phones every few days and hears the same answer (P1).
+- She is not sure if she must sign or send something (P4).
+- She does not know who to ask: Voltia, retailer or distributor (P2).
+- She cannot tell if the wait is normal (P3).
 
 ## Jobs to be done
-- Functional: know what step my file is on and what comes next.
-- Personal: feel sure that nothing is lost or forgotten.
-- Social: tell my partner and neighbours a date with some confidence*.
+- Functional: know the state of her file and the next step (P1, P4).
+- Personal: feel calm while the house cannot be used* (P3).
+- Social: answer her partner* when they ask "when?" (P5).
 
 ## A day in their life during the wait
-She works as normal. Every few days she remembers the file and wonders if she should ask*. On Friday* she sends Voltia a message: «any news?»* She gets an honest answer, often "still waiting" (P4). She feels better for a day, and then the cycle starts again (P5).
+She works all day* and writes to Voltia at lunch* (P1). In the evening she looks for the last email* and finds nothing. She wonders if she forgot a signature* (P4). At the weekend she asks a friend* how long theirs took (P3).
 
 ## How they look for news today
-- She writes or calls Voltia, the only contact she has (P5).
-- She does not call the distributor, because she believes it is Voltia's job* (P2).
-- She asks friends who went through the same file*.
+She contacts Voltia by phone and message* (P1). Toni tells her the file may take long and is clear about it (P5). She does not know the distributor's channels* (P2).
 
 ## What makes them trust or doubt an installer
-- Trust: the recommendation and a good first meeting (P4).
-- Trust: Voltia does what it said, at the price it said (P4).
-- Doubt: a vague answer, or no answer for a week (P5).
-- Doubt: Voltia coming back for a photo it forgot (P3).
+She trusts Voltia because of the recommendation (P5). She trusts more when she is told the truth about delays (P5). She doubts when she gets no answer for days (P1) or when she hears a different story from each party (P2).
 
 ## Based on
-- Profile and Background: P4 (recommendation) and P1 (wait length)
-- Goals and Jobs to be done: P2 (who holds the file)
-- Pains: P3 (paperwork), P5 (cost of not knowing)
-- Trust and doubt: P4 (honesty and results)
+- Profile: P3, P5
+- Background: P5, P3
+- Goals: P3, P1, P4
+- Pains: P1, P4, P2, P3
+- Jobs to be done: P1, P4, P3, P5
+- Day in their life: P1, P4, P3
+- News today: P1, P5, P2
+- Trust: P5, P1, P2
 
-*Not in the research: invented to make her real.
+*Not in the research.
