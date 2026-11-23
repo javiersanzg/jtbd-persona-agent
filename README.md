@@ -76,11 +76,11 @@ python run_agent.py
 ```
 
 ```text
-agent running (sonnet), log: runs/2026-11-23_1653/steps.jsonl
-agent finished after 20 tool calls
-PASS persona-1-hard-end.md (399 words) []
-PASS persona-2-easy-end.md (434 words) []
-PASS persona-3-regular.md (476 words) []
+agent running (sonnet), log: runs/2026-11-23_1740/steps.jsonl
+agent finished after 19 tool calls
+PASS persona-1-hard-end.md (362 words) []
+PASS persona-2-easy-end.md (374 words) []
+PASS persona-3-regular.md (390 words) []
 RESULT: PASS
 ```
 
@@ -97,10 +97,10 @@ Use it on your own research: replace `research/field_notes.md` and the challenge
 
 From the last run (full text in [`output/`](output/) and on the [demo page](https://javiersanzg.github.io/jtbd-persona-agent/)):
 
-> **Raul\*, the client whose file is stuck:** *"Everything is done perfectly and I cannot have electricity because of this paperwork."*
+> **Rafael\*, the client whose file is stuck:** *"I phone every other day to ask, they always tell me the same thing and give me no solution."*
 > Hard end of the line: the installation is finished but the distributor file is stuck. The quote is a real forum post. The name, marked with an asterisk, is invented.
 
-The agent's own conclusion: design first for the regular client, but confirm her with real clients first, because her evidence is the thinnest.
+The agent's own conclusion: design first for the hard end, because four independent sources describe his pain, and test the regular client with real clients next, because her evidence is the thinnest.
 
 ## Project structure
 

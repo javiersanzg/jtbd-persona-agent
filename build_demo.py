@@ -116,9 +116,10 @@ def persona_parts(text):
     lines = text.strip().splitlines()
     first = lines[0].lstrip("# ").strip()
     body = lines[1:]
-    m = re.match(r'(.+?):\s*"(.*)"\s*$', first)
+    m = re.match(r'(.+?)\s*[:–—-]\s*"(.+?)"\s*(.*)$', first)
     if m:
-        return m.group(1), m.group(2), "\n".join(body)
+        tail = f"\n\n{m.group(3).strip()}" if m.group(3).strip() else ""
+        return m.group(1), m.group(2), tail + "\n" + "\n".join(body)
     for k, ln in enumerate(body):
         if ln.strip().startswith(">"):
             quote = ln.strip()[1:].strip().strip('"').strip("“”")
@@ -150,7 +151,12 @@ def sources():
 
 
 def pattern_cards():
-    rows = table_rows((HERE / "output" / "patterns.md").read_text(encoding="utf-8"), "#")
+    text = (HERE / "output" / "patterns.md").read_text(encoding="utf-8")
+    rows = table_rows(text, "#")
+    if not rows:  # the agent may also write one "## P1. Name" section per pattern, with bullet fields
+        for m in re.finditer(r"^##\s*(P\d)[.:]?\s*(.+?)\n(.*?)(?=^##\s|\Z)", text, re.M | re.S):
+            field = lambda k: (re.search(rf"\*\*{k}[^*]*:\*\*\s*(.+)", m.group(3)) or [None, ""])[1].strip()
+            rows.append([m.group(1), m.group(2).strip(), field("Verbatim"), field("Job"), field("Insight")])
     cards = []
     for pid, name, verbatim, job, insight in rows:
         cards.append(f'''<li class="pcard"><p class="pcard-id"><span class="pid">{html.escape(pid)}</span></p>

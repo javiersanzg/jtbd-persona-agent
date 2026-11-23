@@ -1,43 +1,42 @@
-# Marta*, the client with a normal file
-
-> "They are constantly contacting us because these processes take a long time." (Toni, about clients like her)
+# Elena* – "They are constantly contacting us because these processes take a long time." (what the office hears from people like her)
 
 ## Profile
-Homeowner or small business owner* with one electrical file open through Voltia. She came by a recommendation. No forum posts from this point of the line exist in the research, so most of her is built from Toni and i-DE's figures.
+Elena*, 36*, owns a house* near Valencia. Has one file open with Voltia: an electrical certificate for a small job*. Found Voltia through a friend*.
 
 ## Background
-The work is going normally. Voltia told her at the start that the file may take long. Files last from two weeks to two years, and nobody can tell her where hers will fall. i-DE says most files are quick: 93% in under 20 days (self-consumption files only), and 2% take more than 60 days. Age and job are not in the research*.
+Her file is normal: most files are active in under 20 days (P4), and hers is somewhere in that range. She has never done this before*. She does not know the retailer from the distributor (P2). Voltia told her the file may take long (P5).
 
 ## Goals
-- Have the file finished without surprises.
-- Know if her wait is normal.
-- Not have to learn how the process works*.
+- Close the file and have the certificate in her hands.
+- Know roughly when it will be done.
+- Not lose time on paperwork*.
 
 ## Pains and frustrations
-- She does not know if two weeks of silence is normal or the start of a problem.
-- She may be asked to sign papers late, because the client forgets and Voltia has to chase.
-- A photo may be missing and the team goes back to the site (four or five times a month).
-- A rejection could turn a normal file into a long one.
+- She has no news after the first message (P1).
+- She is asked for papers and signatures, and one is missed once (P3).
+- She does not know if "no news" means "all is fine" or "stuck" (P1, P4).
+- She is unsure whom to ask: Voltia, the retailer or the distributor (P2).
 
 ## Jobs to be done
-- **Functional:** know where my file is, what is missing and what comes next (P1).
-- **Personal:** feel that someone I know is responsible for my case (P4).
-- **Social:** not regret recommending Voltia to the person who asked me*.
+- **Functional:** When I am waiting, I want to know if my file moves, so I can relax.
+- **Personal:** I want to feel that I did my part and nothing depends on me.
+- **Social:** I want to tell my partner* the date, without guessing.
 
 ## A day in their life during the wait
-She does not think about the file most days*. After some time without news she writes or calls Voltia to ask if it is normal. She hears that it may take long. She waits again. She knows the retailer and the distributor exist (P2), but she is not yet chasing them*.
+Her life goes on. Once or twice a week* she wonders about the file. If a week passes with no news*, she writes to Voltia. She answers when she is asked for a paper. She signs it late once* and then the file waits for her (P3).
 
 ## How they look for news today
-She contacts Voltia, likely the person she already knows, Marc*. She does not phone a company line, because she has not yet been sent from one party to the other. Each call is a small test of the same question.
+She writes or calls Voltia, as she has no other way to see the file. She reads the answer: "it may take long". She does not read forums*.
 
 ## What makes them trust or doubt an installer
-She trusts the honesty at the start: "we try to be very transparent". She trusts a known person and a recommendation. She starts to doubt when the answers repeat and the days pass*. If papers are rejected again (P3), she may move toward the hard end (P5)*.
+- Trust: the installer was recommended, is honest, and keeps its word (P5).
+- Doubt: a long quiet, because she cannot tell if the file moves (P1).
+- She will judge Voltia by how the wait felt, not only by the result (P4, P5).
 
 ## Based on
-- Profile and Background: P1 (the wait is long), P4 (recommendation).
-- Goals: P1, P3 (no surprises).
-- Pains and frustrations: P1, P3, P2.
-- Jobs to be done: P1 (functional), P4 (personal and social).
-- A day in their life: P1, P2.
-- How they look for news: P1, P4.
-- Trust or doubt: P4, P3, P5.
+- Profile, Background: P4, P2, P5
+- Goals: P4, P1
+- Pains and frustrations: P1, P3, P2
+- Jobs to be done: P1, P4
+- A day, How they look for news: P3, P1
+- Trust or doubt: P5, P4
