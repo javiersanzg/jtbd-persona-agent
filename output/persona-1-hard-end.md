@@ -1,48 +1,43 @@
-# Rafael, the restaurant owner: "Every week I asked: is there news? And every week: we are waiting for Iberdrola."
+# Julio* - "Everything is done perfectly and I cannot have electricity because of this paperwork."
 
 ## Profile
-- 58 years old, owner of a small restaurant in Benimaclet, 12 tables.
-- Client of Voltia with a file of 19 months, still open. Point of the line: hard end.
-- Keeps a plastic folder behind the bar with every paper.
+Homeowner waiting for a new supply or a power increase*. Age and job are not in the research*. He writes in electricity forums, sometimes at 2 a.m. He knows the legal deadline (30 working days) exactly.
 
 ## Background
-Needed more power for a new kitchen. The file started in April of last year. He still cooks on the old cooker. He called Iberdrola once: forty minutes on hold, then they only talk to the installer. Technicians came three times for photos.
+His electrical work is finished. His file is stopped, rejected or in a loop. Some people in his position have waited since 03/10/2023 or "6 months". He did not choose the company that owns the file. He chose an installer, maybe through a contact*.
 
 ## Goals
-- Open the new kitchen and stop postponing it.
-- Know where the file is, even if the answer is "still waiting".
-- Have the installer get things right the first time.
+- Get the power connected and live normally again.
+- Know why the file is stopped and who must act.
+- Stop spending hours on it.
 
 ## Pains and frustrations
-- Weekly answer is always the same: waiting for Iberdrola.
-- Three visits for forgotten photos: "if they forget the photos, what else do they forget?"
-- Had to tell his cook the kitchen would not be ready for summer; she had planned the menu.
-- Distrusts e-mail: "they get lost".
+- Calls every other day bring "the same" answer (P1).
+- The retailer blames the distributor, and the distributor blames the retailer (P2).
+- The same papers are rejected a fourth time for a small detail, like a URL that cannot be seen (P3).
+- He lives cold, with a few light bulbs (P5).
+- The work takes "5 hours a day" and he ends desperate.
 
 ## Jobs to be done
-- **Functional:** know what is missing and who has the file now.
-- **Personal:** feel that someone is really looking at his file.
-- **Social:** give his cook and staff a believable date, so he does not lose face.*
+- **Functional:** know where the file is and what is missing (P1); get it moving without coordinating it himself (P2); have papers accepted the first time (P3).
+- **Personal:** get his normal life back and stop feeling powerless (P5).
+- **Social:** be able to say to his family* that it is not his fault; keep the word he gave them*.
 
 ## A day in their life during the wait
-Lunch service ends, and at 16:30 he has a short break. He checks the old cooker, then WhatsApp.* On Thursday, his chosen day, he calls Voltia: the sticky note on the till says "Voltia - jueves". He asks Marc for news. Marc answers, but knows no more than he does. In the evening he adds another dated note to the folder.*
+He calls the distributor in the morning*. They tell him the same. He calls the retailer, who sends him back. He re-sends a document. At night he cannot sleep* and writes in a forum. The next day he repeats it (P1, P2).
 
 ## How they look for news today
-- Calls Marc on Thursdays, not every day.
-- Scrolls WhatsApp up to April of last year to find the first message.
-- Checks the paper folder, not e-mail.
-- Called Iberdrola once; never again.
+Phone calls every other day, forum posts, and rumours of others who wait longer (P1). He asks strangers whether he can report them, because nobody inside the process answers him (P5).
 
 ## What makes them trust or doubt an installer
-- Trust: a person who always answers (Marc). Rafael still says "he is a good guy".
-- Doubt: repeated visits for photos, and the same answer every week.
-- Doubt grows from silence, not from the length of the wait.
+He doubts when the installer is silent or when the delay was born in the job, like a missing signature or photo (P3). He trusts a person he knows by name, as Voltia's clients trust Marc (P4). Complaints are "not usually followed up", so he may feel alone*.
 
 ## Based on
-- Profile and Background: P4 (forgotten photos and papers shape the whole story)
-- Goals: P1 (he wants to know someone is looking)
-- Pains: P4 and P3 (the answer "waiting for Iberdrola" says nothing)
-- Jobs to be done: P1 and P2 (Marc is the person he counts on)
-- A day in their life: P5 (no small proof of progress arrives*)
-- Looking for news: P2 and P3 (a person, not official messages)
-- Trust or doubt: P4, P2 and P1
+- Profile: P1, P5
+- Background: P2, P3
+- Goals and Pains: P1, P2, P3, P5
+- Jobs to be done: P1, P2, P3, P5
+- A day in their life: P1, P2
+- News and trust: P3, P4, P5
+
+*Asterisk = detail not in the research.

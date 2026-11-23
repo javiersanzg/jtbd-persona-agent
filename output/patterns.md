@@ -1,13 +1,28 @@
-# Patterns from the field research (shared numbering)
+# Patterns P1 to P5
 
-Source: research/field_notes.md (5 sessions, 16-20/11/2026).
+Source: `research/field_notes.md` only. Quotes are word for word from that file (English translation).
 
-| ID | Pattern | Verbatim | Job to be done | Insight |
-|---|---|---|---|---|
-| P1 | The wait is not the problem; not knowing is | "They don't want the file faster... first they want to know that someone is looking at it" (Laura) | Personal: feel that my file is in good hands | People tolerate long waits when the wait is explained as normal and someone shows they are watching it |
-| P2 | The client trusts a person, not a company | "I don't call the company. I call Marc" (Pilar) | Social: have someone I can count on | Trust sits with one person, so all the news goes through him, and he becomes the bottleneck |
-| P3 | Official status messages mean nothing | "The status says 'in process' for months" (Vicente) | Functional: know what happens next and when | A status without a next step and an owner gives no calm |
-| P4 | Delays come from a missing paper or photo | "Ninety per cent of the delays are a paper that nobody asked for on day one" (Laura) | Functional: get it right the first time | Forgotten photos make the client doubt the whole work, not only the paperwork |
-| P5 | Small signs of progress calm people | The garage photo on WhatsApp: "Ah, they've already taken the bumper off. Fine, fine." | Personal: see that something is moving | A small proof of progress replaces the call that asks "is there news?" |
+## P1 Calls come from silence, not from time
+- **Verbatim:** Julio21: "I phone every other day to ask; they always tell me the same". Toni: "They are constantly contacting us"; "Some files take two years and some take two weeks."
+- **Job to be done (functional):** Know where my file is, what is missing and what comes next.
+- **Insight:** The user cannot tell if his wait is normal. A call that brings back "the same" tells him nobody looks at his file, so he calls again.
 
-Which persona carries which pattern most: Rafael (hard end) P1, P4, P2; Laura (easy end) P3, P5, P1; Pilar (regular) P2, P3, P5.
+## P2 Nobody owns the file, so the user becomes its manager
+- **Verbatim:** pantaleon: "The retailer says the distributor rejects the request, and the distributor says the retailer does"; "5 hours a day". PUMA: "My retailer Iberdrola washes its hands".
+- **Job to be done (functional):** Get my file moving without coordinating it myself.
+- **Insight:** Each company answers for one piece and sends him to the other. Only the user sees the whole file.
+
+## P3 Delays are born on day one and show up weeks later
+- **Verbatim:** Tevi62: "the fourth they send them, they are rejected again". Toni: "the client forgets to sign some papers". Herrera: "the distributors' own errors are what bog down the process".
+- **Job to be done (functional):** Have the file accepted the first time.
+- **Insight:** The cause (a signature, a format, an error) and the rejection are weeks apart, so the rejection feels random. He cannot learn from it.
+
+## P4 Trust is in a person and in a kept promise
+- **Verbatim:** N. M.: "in the agreed time and budget... Congratulations Marc". Toni: "Marc is the one who deals most with the client"; clients come "through contacts and recommendations".
+- **Job to be done (emotional, social and personal):** Keep my word to the people I answer to; feel safe because I know one person by name.
+- **Insight:** The happy client praises the kept promise, not the technique. A delay feels like a promise broken by someone he trusted.
+
+## P5 Finished work that cannot be used feels unfair
+- **Verbatim:** Julio21: "Everything is done perfectly and I cannot have electricity because of this paperwork". PUMA: "cold and with only a few light bulbs"; "Can I report them?". Tevi62: "helplessness".
+- **Job to be done (emotional, personal):** Get my normal life back and stop feeling powerless.
+- **Insight:** When the work is visibly done, the wait looks like a decision against him. Posts move from "when?" to "can I report them?" to helplessness.

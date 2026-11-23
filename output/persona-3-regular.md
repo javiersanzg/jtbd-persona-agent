@@ -1,46 +1,42 @@
-# Pilar, the nurse: "I don't call the company. I call Marc."
+# Carmen* - "I just want to know if it is normal."
 
 ## Profile
-- 42 years old, nurse, homeowner in Torrent.
-- Client of Voltia for a power increase for a heat pump. File of about two months, now finished. Point of the line: regular.
-- Works shifts; her fridge has a calendar full of them.
+A Voltia client in Valencia* with an ordinary file: a certificate or an Iberdrola procedure*. She is not an expert and not in crisis. Her age, job and home are not in the research*. She came through a contact or a recommendation.
 
 ## Background
-She asked for more power for the heat pump. The file went normally. The distributor sent e-mails with a number and a code. She does not know what they mean, so she does not open them.
+Voltia told her at the start that the file may take long, and tried to be "very transparent". Files last "two weeks or two years", so she does not know where hers will fall (P1). The research has no direct voice of a client in this middle, so most of her details are inferred*.
 
 ## Goals
-- Get the heat pump working without disturbing her shifts.
-- Know whether the file will be fast or slow, so she can stop worrying.*
-- Sign what she must sign at a time she can answer.
+- Have the file finished in a time she can plan around*.
+- Understand what the installer needs from her, like a signature (P3).
+- Feel that someone is looking at her file (P4).
 
 ## Pains and frustrations
-- "They call me when I am at work, to sign something."
-- Unopened e-mails with codes she cannot read.
-- "In the end it was fast. But I didn't know it was going to be fast, so I worried for nothing."
+- She cannot tell if her wait is normal. Averages from i-DE (93% of solar files under 20 days) are not her case (P1).
+- She may forget to sign papers, and nobody warns her at the right time (P3).
+- The team may need to return to the site for a missing photo, four or five times a month (P3).
+- Her file belongs to Iberdrola, not to Voltia, but Voltia is the face she knows (P2).
 
 ## Jobs to be done
-- **Functional:** know what happens next and when.
-- **Personal:** stop worrying about a file that is normal.
-- **Social:** have a person she can count on, not a company.
+- **Functional:** know where my file is, what is missing and what comes next (P1).
+- **Personal:** feel safe because she knows one person by name (P4); avoid the helplessness of the hard end (P5)*.
+- **Social:** be able to tell her family* that the work is on track.
 
 ## A day in their life during the wait
-She wakes for an early shift* and works at the hospital.* Her phone rings at work and she cannot answer. Later she looks at the heat pump display and the unopened e-mails.* She calls Marc, saved in her phone as "Electricista Marc".
+She does not think about the file most days*. A silence of some weeks makes her wonder. She sends a message or calls Voltia, as clients "constantly" do (P1). She signs a paper when asked, and sometimes late (P3).
 
 ## How they look for news today
-- She calls Marc, never the company.
-- She leaves the distributor e-mails unread.
-- She waits for news to reach her; she does not go looking.*
+She contacts Voltia, probably Marc or Toni (P4). She does not read forums* and does not know the distributor's own process (P2). If the answer is "the same", she calls again (P1).
 
 ## What makes them trust or doubt an installer
-- Trust: one known person who picks up.
-- Doubt: calls at the wrong time, and silence that makes a fast file feel risky.
-- Official codes and statuses do not build trust for her.
+She trusts honesty about delay and a known person, as the happy client trusts Marc (P4). She doubts if complaints are "not usually followed up" and the same mistake repeats (P3). If the wait grows and the work is done, she could move toward the hard end (P5)*.
 
 ## Based on
-- Profile and Background: P3 (e-mails with a code mean nothing)
-- Goals: P1 (knowing the file is normal)
-- Pains: P3 and P1 (she worried for nothing); P4 (a signature is asked for late, in the middle of her shift)
-- Jobs to be done: P3 and P2 (a person, not a company)
-- A day in their life: P5 (no small sign of progress reaches her*)
-- Looking for news: P2 and P3
-- Trust or doubt: P2 and P1
+- Profile: P4
+- Background: P1, P2
+- Goals and Pains: P1, P2, P3, P4
+- Jobs to be done: P1, P4, P5
+- A day in their life: P1, P3
+- News and trust: P1, P2, P3, P4, P5
+
+*Asterisk = detail not in the research.

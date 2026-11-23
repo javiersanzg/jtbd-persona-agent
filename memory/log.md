@@ -1,16 +1,13 @@
-1 | THINK | read AGENT.md, checker rules and research/field_notes.md; plan: patterns first, then personas 1, 2, 3, then report
-2 | ACT | wrote output/patterns.md with P1-P5 (verbatim, JTBD, insight)
-3 | THINK | persona-1 (Rafael, hard end): P1 not knowing, P4 forgotten photos, P2 trust in Marc; checker traps: no "based on" in body, no solution words, single asterisks only, max 600 words
-4 | ACT | wrote output/persona-1-hard-end.md
-5 | OBSERVE | checker on persona-1: PASS, 454 words, 0 problems (1 try)
-6 | THINK | persona-2 (Laura, easy end): P3 status without owner, P5 small signs, P1 regular news, P4 checklist
-7 | ACT | wrote output/persona-2-easy-end.md
-8 | OBSERVE | checker on persona-2: PASS, 436 words, 0 problems (1 try)
-9 | THINK | persona-3 (Pilar, regular): P2 person not company, P3 codes mean nothing, P1 worried for nothing
-10 | ACT | wrote output/persona-3-regular.md
-11 | OBSERVE | checker on persona-3: PASS, 389 words, 0 problems (1 try)
-12 | REFLECT | Pilar's Based on linked P4 in trust section without research support; removed that link
-13 | ACT | wrote output/report.md
-14 | OBSERVE | re-ran checker on persona-3: FAIL, pattern P4 is never used (try 2)
-15 | ACT | linked P4 in Pilar's Pains to the late signature during her shift (supported by interview)
-16 | OBSERVE | checker on persona-3: PASS, 401 words (try 2 passed); report.md updated to match
+1 | THINK | read research/field_notes.md and check_persona.py: 8 sources, 5 patterns; checker wants 9 sections in order, P1-P5 in each persona, 5+ P links after "Based on", no solution words, an asterisk, max 600 words
+2 | ACT | wrote output/patterns.md (P1-P5 with verbatim, JTBD, insight)
+3 | THINK | persona-1 hard end = Julio21, PUMA, pantaleon, Tevi62; defined by P1, P2, P5, P3; P4 shows as a broken trust
+4 | ACT | wrote output/persona-1-hard-end.md (435 words)
+5 | OBSERVE | checker on persona-1: PASS, 435 words, 0 problems (try 1)
+6 | REFLECT | persona-1 holds without fixes; next, persona-2 from N. M. (easy end, P4) and Herrera (many files, P3), with P1, P2, P5 as what he avoids or still meets
+7 | ACT | wrote output/persona-2-easy-end.md (471 words)
+8 | OBSERVE | checker on persona-2: PASS, 471 words, 0 problems (try 1)
+9 | THINK | persona-3 regular: no direct middle voice in the research; build it from Toni (files of two weeks to two years, 4-5 site returns a month, constant contact) and i-DE averages (59% under 5 days, 93% under 20); expect many asterisks; core = P1, P3, P4
+10 | ACT | wrote output/persona-3-regular.md (452 words)
+11 | OBSERVE | checker on persona-3: PASS, 452 words, 0 problems (try 1)
+12 | REFLECT | all five patterns used in every persona; limits to state in report: persona-2 mixes N. M. and Herrera, persona-3 is mostly inferred
+13 | ACT | wrote output/report.md (table, shared jobs, differences, recommendation: design for persona-1 first)
