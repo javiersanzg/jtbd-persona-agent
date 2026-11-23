@@ -68,6 +68,10 @@ class CheckPersonaTest(unittest.TestCase):
         res = check(GOOD.replace("Uses WhatsApp for everything.", "She needs an app to track it."))
         self.assertTrue(any(p.startswith("proposes solutions") for p in res["problems"]))
 
+    def test_solution_word_inside_a_quote_is_allowed(self):
+        res = check(GOOD.replace("Uses WhatsApp for everything.", 'She says "they give me no solution".'))
+        self.assertEqual(res["verdict"], "PASS", res["problems"])
+
     def test_unmarked_invention_fails(self):
         res = check(GOOD.replace("44*", "44"))
         self.assertIn("no invented detail is marked with an asterisk", res["problems"])

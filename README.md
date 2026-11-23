@@ -59,7 +59,7 @@ flowchart LR
 - every required section is present, in order
 - all five research patterns are used
 - a *Based on* list traces each section back to a pattern
-- it proposes no solutions (research, not ideation)
+- it proposes no solutions (research, not ideation); words inside quotation marks are the users' own and are left out of this check, so the agent is never pushed to edit a verbatim
 - every detail that is not in the research is marked with `*`
 - it fits on one page (600 words or fewer)
 

@@ -59,7 +59,8 @@ def check(text):
     based = text.lower().split("based on", 1)
     if len(based) < 2 or len(re.findall(r"\bp[1-5]\b", based[1])) < 5:
         problems.append("the Based on list does not link the sections to patterns")
-    body = text.lower().split("based on", 1)[0]
+    # quotes are the users' own words: never ask the agent to edit a verbatim to pass this rule
+    body = re.sub(r'"[^"\n]*"|“[^”\n]*”|«[^»\n]*»', " ", text.lower().split("based on", 1)[0])
     found = sorted(set(m.group(0) for m in re.finditer(SOLUTION_WORDS, body)))
     if found:
         problems.append(f"proposes solutions (words: {', '.join(found)})")

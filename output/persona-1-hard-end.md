@@ -1,43 +1,44 @@
-# Julio* - "Everything is done perfectly and I cannot have electricity because of this paperwork."
+# Raul*, the client whose file is stuck
+
+> "Everything is done perfectly and I cannot have electricity because of this paperwork."
 
 ## Profile
-Homeowner waiting for a new supply or a power increase*. Age and job are not in the research*. He writes in electricity forums, sometimes at 2 a.m. He knows the legal deadline (30 working days) exactly.
+Homeowner waiting for a new supply or a power increase*. Age 45*. He writes in public forums at night.
 
 ## Background
-His electrical work is finished. His file is stopped, rejected or in a loop. Some people in his position have waited since 03/10/2023 or "6 months". He did not choose the company that owns the file. He chose an installer, maybe through a contact*.
+His installer finished the work. The file with i-DE has been open for months, past the legal 30 working days. He has heard of people who wait 6 months. Retailer and distributor each say the other one is the problem. He has called again and again.
 
 ## Goals
-- Get the power connected and live normally again.
-- Know why the file is stopped and who must act.
+- Have light and power at home again.
+- Understand why the file is stopped.
 - Stop spending hours on it.
 
 ## Pains and frustrations
-- Calls every other day bring "the same" answer (P1).
-- The retailer blames the distributor, and the distributor blames the retailer (P2).
-- The same papers are rejected a fourth time for a small detail, like a URL that cannot be seen (P3).
-- He lives cold, with a few light bulbs (P5).
-- The work takes "5 hours a day" and he ends desperate.
+- Every call gets "the same" answer and nothing moves.
+- A rejected paper goes back, and is rejected a fourth time.
+- He is cold at home, with a few light bulbs.
+- Hours of daily work: "5 hours a day".
+- His last words are "desperate" and "helplessness".
 
 ## Jobs to be done
-- **Functional:** know where the file is and what is missing (P1); get it moving without coordinating it himself (P2); have papers accepted the first time (P3).
-- **Personal:** get his normal life back and stop feeling powerless (P5).
-- **Social:** be able to say to his family* that it is not his fault; keep the word he gave them*.
+- **Functional:** know where the file is, who has it, and what comes next, without coordinating it himself.
+- **Personal:** get his normal life back and stop feeling powerless.
+- **Social:** not look foolish to the person who recommended the installer*.
 
 ## A day in their life during the wait
-He calls the distributor in the morning*. They tell him the same. He calls the retailer, who sends him back. He re-sends a document. At night he cannot sleep* and writes in a forum. The next day he repeats it (P1, P2).
+He phones every other day. At 2 a.m. he writes a post. In the afternoon he writes another. He sends the same papers again. He checks the file between calls*. At night he asks strangers about his rights: "Can I report them?"
 
 ## How they look for news today
-Phone calls every other day, forum posts, and rumours of others who wait longer (P1). He asks strangers whether he can report them, because nobody inside the process answers him (P5).
+He phones the retailer, then the distributor, then the installer*. He reads forums to compare his wait with others. He gets a different answer from each, so he starts again.
 
 ## What makes them trust or doubt an installer
-He doubts when the installer is silent or when the delay was born in the job, like a missing signature or photo (P3). He trusts a person he knows by name, as Voltia's clients trust Marc (P4). Complaints are "not usually followed up", so he may feel alone*.
+He doubts when the work is done and still nothing works. He wants a named person who answers for his case*. He trusts less when the installer only repeats what the distributor says*.
 
 ## Based on
-- Profile: P1, P5
-- Background: P2, P3
-- Goals and Pains: P1, P2, P3, P5
-- Jobs to be done: P1, P2, P3, P5
-- A day in their life: P1, P2
-- News and trust: P3, P4, P5
-
-*Asterisk = detail not in the research.
+- Profile and Background: P2 (nobody owns the file), P5 (finished work, no use).
+- Goals: P1 (know where the file is), P5.
+- Pains and frustrations: P1 (repeated calls), P3 (papers rejected again), P5 (helplessness).
+- Jobs to be done: P1 and P2 (functional), P5 (personal), P4 (social).
+- A day in their life: P1, P2 (he manages the file), P3.
+- How they look for news: P1, P2.
+- Trust or doubt: P4 (a named person), P5.

@@ -1,42 +1,43 @@
-# Carmen* - "I just want to know if it is normal."
+# Marta*, the client with a normal file
+
+> "They are constantly contacting us because these processes take a long time." (Toni, about clients like her)
 
 ## Profile
-A Voltia client in Valencia* with an ordinary file: a certificate or an Iberdrola procedure*. She is not an expert and not in crisis. Her age, job and home are not in the research*. She came through a contact or a recommendation.
+Homeowner or small business owner* with one electrical file open through Voltia. She came by a recommendation. No forum posts from this point of the line exist in the research, so most of her is built from Toni and i-DE's figures.
 
 ## Background
-Voltia told her at the start that the file may take long, and tried to be "very transparent". Files last "two weeks or two years", so she does not know where hers will fall (P1). The research has no direct voice of a client in this middle, so most of her details are inferred*.
+The work is going normally. Voltia told her at the start that the file may take long. Files last from two weeks to two years, and nobody can tell her where hers will fall. i-DE says most files are quick: 93% in under 20 days (self-consumption files only), and 2% take more than 60 days. Age and job are not in the research*.
 
 ## Goals
-- Have the file finished in a time she can plan around*.
-- Understand what the installer needs from her, like a signature (P3).
-- Feel that someone is looking at her file (P4).
+- Have the file finished without surprises.
+- Know if her wait is normal.
+- Not have to learn how the process works*.
 
 ## Pains and frustrations
-- She cannot tell if her wait is normal. Averages from i-DE (93% of solar files under 20 days) are not her case (P1).
-- She may forget to sign papers, and nobody warns her at the right time (P3).
-- The team may need to return to the site for a missing photo, four or five times a month (P3).
-- Her file belongs to Iberdrola, not to Voltia, but Voltia is the face she knows (P2).
+- She does not know if two weeks of silence is normal or the start of a problem.
+- She may be asked to sign papers late, because the client forgets and Voltia has to chase.
+- A photo may be missing and the team goes back to the site (four or five times a month).
+- A rejection could turn a normal file into a long one.
 
 ## Jobs to be done
 - **Functional:** know where my file is, what is missing and what comes next (P1).
-- **Personal:** feel safe because she knows one person by name (P4); avoid the helplessness of the hard end (P5)*.
-- **Social:** be able to tell her family* that the work is on track.
+- **Personal:** feel that someone I know is responsible for my case (P4).
+- **Social:** not regret recommending Voltia to the person who asked me*.
 
 ## A day in their life during the wait
-She does not think about the file most days*. A silence of some weeks makes her wonder. She sends a message or calls Voltia, as clients "constantly" do (P1). She signs a paper when asked, and sometimes late (P3).
+She does not think about the file most days*. After some time without news she writes or calls Voltia to ask if it is normal. She hears that it may take long. She waits again. She knows the retailer and the distributor exist (P2), but she is not yet chasing them*.
 
 ## How they look for news today
-She contacts Voltia, probably Marc or Toni (P4). She does not read forums* and does not know the distributor's own process (P2). If the answer is "the same", she calls again (P1).
+She contacts Voltia, likely the person she already knows, Marc*. She does not phone a company line, because she has not yet been sent from one party to the other. Each call is a small test of the same question.
 
 ## What makes them trust or doubt an installer
-She trusts honesty about delay and a known person, as the happy client trusts Marc (P4). She doubts if complaints are "not usually followed up" and the same mistake repeats (P3). If the wait grows and the work is done, she could move toward the hard end (P5)*.
+She trusts the honesty at the start: "we try to be very transparent". She trusts a known person and a recommendation. She starts to doubt when the answers repeat and the days pass*. If papers are rejected again (P3), she may move toward the hard end (P5)*.
 
 ## Based on
-- Profile: P4
-- Background: P1, P2
-- Goals and Pains: P1, P2, P3, P4
-- Jobs to be done: P1, P4, P5
-- A day in their life: P1, P3
-- News and trust: P1, P2, P3, P4, P5
-
-*Asterisk = detail not in the research.
+- Profile and Background: P1 (the wait is long), P4 (recommendation).
+- Goals: P1, P3 (no surprises).
+- Pains and frustrations: P1, P3, P2.
+- Jobs to be done: P1 (functional), P4 (personal and social).
+- A day in their life: P1, P2.
+- How they look for news: P1, P4.
+- Trust or doubt: P4, P3, P5.
