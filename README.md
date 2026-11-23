@@ -76,11 +76,11 @@ python run_agent.py
 ```
 
 ```text
-agent running (sonnet), log: runs/2026-11-22_2228/steps.jsonl
-agent finished after 19 tool calls
-PASS persona-1-hard-end.md (454 words) []
-PASS persona-2-easy-end.md (436 words) []
-PASS persona-3-regular.md (401 words) []
+agent running (sonnet), log: runs/2026-11-23_1653/steps.jsonl
+agent finished after 20 tool calls
+PASS persona-1-hard-end.md (399 words) []
+PASS persona-2-easy-end.md (434 words) []
+PASS persona-3-regular.md (476 words) []
 RESULT: PASS
 ```
 
@@ -97,10 +97,10 @@ Use it on your own research: replace `research/field_notes.md` and the challenge
 
 From the last run (full text in [`output/`](output/) and on the [demo page](https://javiersanzg.github.io/jtbd-persona-agent/)):
 
-> **Rafael, the restaurant owner:** *"Every week I asked: is there news? And every week: we are waiting for Iberdrola."*
-> Hard end of the line: a 19-month file. Trust sits with one person (P2), forgotten photos turn doubt about one step into doubt about the whole job (P4), and the silence, not the wait, is what hurts (P1).
+> **Raul\*, the client whose file is stuck:** *"Everything is done perfectly and I cannot have electricity because of this paperwork."*
+> Hard end of the line: the installation is finished but the distributor file is stuck. The quote is a real forum post. The name, marked with an asterisk, is invented.
 
-The agent's own conclusion: *across the line, the distance is not in the length of the wait but in how much the person knows about it.*
+The agent's own conclusion: design first for the regular client, but confirm her with real clients first, because her evidence is the thinnest.
 
 ## Project structure
 
@@ -109,7 +109,7 @@ AGENT.md            the goal and rules given to the agent
 run_agent.py        starts the agent, records the run, re-checks the results, rebuilds the demo
 check_persona.py    the deterministic quality checker (the agent's tool)
 build_demo.py       renders docs/index.html from output/ and memory/
-research/           input: interview and observation notes
+research/           input: real research notes (interview, forum posts, a review, expert articles)
 output/             patterns, personas and report of the last run
 memory/log.md       the agent's step log of the last run
 runs/               a copy of every run's output and log
@@ -126,7 +126,7 @@ tests/              unit tests for the checker
 
 ## Background
 
-Built for a design-thinking course at EDEM (Valencia), on a real challenge from a small electrical installation company: clients waiting for utility paperwork that can take from two weeks to two years. The company and staff names are changed, and the interview notes are simulated from real conversations with the company.
+Built for a design-thinking course at EDEM (Valencia), on a real challenge from a small electrical installation company: clients waiting for utility paperwork that can take from two weeks to two years. The research is real: a recorded interview with the company's admin, public forum posts by people waiting for their distributor file, a client review and two published expert interviews, with every quote checked against its source. The names of the company, its staff and its client are changed.
 
 ## License
 
