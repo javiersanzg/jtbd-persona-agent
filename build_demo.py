@@ -116,10 +116,12 @@ def persona_parts(text):
     lines = text.strip().splitlines()
     first = lines[0].lstrip("# ").strip()
     body = lines[1:]
-    m = re.match(r'(.+?)\s*[:–—-]\s*"(.+?)"\s*(.*)$', first)
+    m = re.match(r'(.+?)\s*[:–—-]\s*["«“](.+?)["»”]\s*(.*)$', first)
     if m:
-        tail = f"\n\n{m.group(3).strip()}" if m.group(3).strip() else ""
-        return m.group(1), m.group(2), tail + "\n" + "\n".join(body)
+        rest = m.group(3).strip()
+        tail = f"\n\n{rest}" if rest.strip("*") else ""
+        quote = m.group(2) + ("*" if rest.startswith("*") else "")  # an invented quote keeps its mark
+        return m.group(1), quote, tail + "\n" + "\n".join(body)
     for k, ln in enumerate(body):
         if ln.strip().startswith(">"):
             quote = ln.strip()[1:].strip().strip('"').strip("“”")
@@ -144,9 +146,38 @@ def table_rows(text, first_header):
     return []
 
 
+def sources_from_sections(text):
+    """Sources written as '### Name' (interview, client review) or '**Name**, details, date, link' (outside context)."""
+    rows, section, sub, pending = [], "", "", None
+    lines = text.splitlines()
+    for k, ln in enumerate(lines):
+        s = ln.strip()
+        if s.startswith("## "):
+            section, sub = s[3:].lower(), ""
+        elif s.startswith("### "):
+            sub = s[4:]
+            if "outside" not in section:
+                nxt = next((x.strip() for x in lines[k + 1:] if x.strip()), "")
+                date = (re.search(r"\d{2}/\d{2}/\d{4}", nxt) or [""])[0]
+                kind = "Recorded interview" if "interview" in section else "Google review"
+                rows.append(("", sub, "Inside the company" if "interview" in section else "Client of the company", kind, date))
+        elif "outside" in section and s.startswith("**") and not s.endswith("**"):
+            m = re.match(r"\*\*(.+?)\*\*,\s*(.*)", s)
+            if m:
+                date = (re.search(r"\d{2}/\d{2}/\d{4}", m.group(2)) or [""])[0]
+                kind = "Magazine interview" if "expert" in sub.lower() else "Forum post"
+                first = m.group(2).split(",")[0]
+                who = m.group(1) if first.startswith("Energ") or re.match(r"\d{2}/", first) else f"{m.group(1)}, {first}"
+                rows.append(("", who, "Outside the company", kind, date))
+    return rows
+
+
 def sources():
-    rows = table_rows((HERE / "research" / "field_notes.md").read_text(encoding="utf-8"), "#")
+    text = (HERE / "research" / "field_notes.md").read_text(encoding="utf-8")
+    rows = table_rows(text, "#") or sources_from_sections(text)
     def kind(s):
+        if s in ("Recorded interview", "Google review", "Magazine interview", "Forum post"):
+            return s
         s = s.lower()
         if "interview" in s:
             return "Recorded interview"
@@ -164,7 +195,7 @@ def pattern_cards():
     rows = table_rows(text, "#")
     if not rows:  # the agent may also write one "## P1. Name" section per pattern, with bullet fields
         for m in re.finditer(r"^##\s*(P\d)[.:]?\s*(.+?)\n(.*?)(?=^##\s|\Z)", text, re.M | re.S):
-            field = lambda k: (re.search(rf"\*\*{k}[^*]*:\*\*\s*(.+)", m.group(3)) or [None, ""])[1].strip()
+            field = lambda k: (re.search(rf"^\s*[-*]?\s*(?:\*\*)?{k}[^:\n]*:(?:\*\*)?\s*(.+)$", m.group(3), re.M) or [None, ""])[1].strip()
             rows.append([m.group(1), m.group(2).strip(), field("Verbatim"), field("Job"), field("Insight")])
     cards = []
     for pid, name, verbatim, job, insight in rows:
@@ -200,7 +231,7 @@ def build():
 </article>''')
     passed = sum(1 for v in verdicts if v == "PASS")
     report = (HERE / "output" / "report.md").read_text(encoding="utf-8").split("\n", 1)[1]
-    report = re.sub(r"\s*\(`[^`]+\.md`\)", "", report)  # file names are noise for a reader
+    report = re.sub(r"\s*\(`?[\w.-]+\.md`?\)", "", report)  # file names are noise for a reader
     src_html, n_src = sources()
     pat_html, n_pat = pattern_cards()
     css = (HERE / "assets" / "demo.css").read_text(encoding="utf-8")

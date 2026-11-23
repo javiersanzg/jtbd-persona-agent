@@ -1,42 +1,49 @@
-# Rafael* – "I phone every other day to ask, they always tell me the same thing and give me no solution."
+# Lucia, 41* — «Está todo perfectamente realizado y no puedo tener luz por este trámite»
 
 ## Profile
-Rafael*, 48*, owner of a flat in Valencia*. Waiting for a new electricity supply connection. Contacted Voltia through a recommendation*.
+- Lives in a new house in a town near Valencia*.
+- Client of Voltia, who did the installation.
+- Her new supply file with i-DE is stuck.
 
 ## Background
-Voltia finished the installation and "everything is done perfectly", but the supply is not connected. The legal deadline of 30 working days has passed. He has heard of people waiting 6 months. He does not know the difference between retailer and distributor*.
+Lucia built the house with her family*. Voltia finished the electrical work and it is "perfectly done". The file with the distributor has been open for many months*. Voltia told her at the start that it might take long*, and she believed it was a matter of weeks*.
 
 ## Goals
-- Have electricity in the flat.
-- Know a date, even a rough one.
-- Stop spending hours on the phone.
+- Get electricity in the house.
+- Understand why the file does not move.
+- Stop spending her days on this.
 
 ## Pains and frustrations
-- Every call gives the same answer (P1).
-- Retailer and distributor blame each other (P2).
-- A document is rejected again and again for small reasons (P3).
-- The file may take two weeks or two years, and nobody says which (P4).
-- He feels "desperate" and alone with the paperwork (P5).
+- The retailer says the distributor rejects the request, and the distributor says the retailer does (P2).
+- Documents come back rejected, even after she sends them again (P3).
+- She calls every other day and hears the same answer (P5).
+- Nobody tells her whether two months or two years is normal (P1).
+- She lives with no power and pays rent elsewhere*.
 
 ## Jobs to be done
-- **Functional:** When the file is stuck, I want to know who has it and why, so I can act.
-- **Personal:** I want to stop feeling helpless.
-- **Social:** I want my family* to see that I handled it well.
+- Functional: know who holds my file and what is missing, so I can act.
+- Personal: stop feeling helpless and stop chasing people.
+- Social: show my family that the delay is not my fault*.
 
 ## A day in their life during the wait
-Morning: he calls i-DE*, then the retailer*. Midday: he checks his email* for news. Afternoon: he re-sends a document* and writes to Voltia. Evening: he reads forums at night*, looking for people with the same case. The file takes hours every day.
+Morning: she phones the retailer*. Midday: she phones the distributor* and then Voltia. She checks her email for any reply*. Afternoon: she looks for the document they asked for and sends it again*. Evening: she tells her partner "no news" and reads forums about other people with the same problem*. About five hours go to this on bad days (P5).
 
 ## How they look for news today
-Phone calls, every other day. Messages to Voltia. Forums, where he asks if he can report them. No one gives him a status; each answer sends him to someone else.
+- Phone calls, first to the retailer, then to the distributor, then to Voltia (P2).
+- Voltia is the only party that picks up and is honest with her* (P4).
+- Online forums, to see if her wait is normal (P1).
+- She gets no news on her own; she has to ask.
 
 ## What makes them trust or doubt an installer
-- Trust: the installer picks up, is open about delays, and names a person who follows the file (P5).
-- Doubt: silence, or "it depends" with no reason (P1, P4).
-- He doubts any answer that blames the other side (P2).
+- Trust: Voltia tells her the truth, even when the news is bad (P4).
+- Trust: Voltia did the work well and on time* (P4).
+- Doubt: if Voltia cannot say where the file is, she starts to think Voltia has lost control of it (P2).
+- Doubt: each new call that ends with "we do not know" (P5).
 
 ## Based on
-- Profile, Background: P4, P2
-- Goals, Pains: P1, P2, P3, P4
-- Jobs to be done: P1, P2
-- A day, How they look for news: P1, P3
-- Trust or doubt: P5, P4
+- Profile and Background: P1 (wait with no known length)
+- Goals and Jobs to be done: P2 (file stuck between parties)
+- Pains: P3 (rejected documents), P5 (cost of not knowing)
+- Trust and doubt: P4 (honesty and results)
+
+*Not in the research: invented to make her real.

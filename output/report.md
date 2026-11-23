@@ -1,36 +1,26 @@
-# Report: three personas for the Voltia challenge
+# Report: three personas for the Voltia file-status challenge
 
-Challenge: clients with an Iberdrola (i-DE) file or an electrical certificate in progress do not know what is happening with it. Details marked with an asterisk (*) in the personas are not in the research. Patterns P1 to P5 are in `patterns.md`.
+| Persona | Point of the line | Checker verdict | Tries |
+|---|---|---|---|
+| Lucia (persona-1-hard-end.md) | File very slow or blocked | PASS (441 words) | 1 fix-free pass; checked again after adding asterisks and a verbatim quote: PASS |
+| Daniel (persona-2-easy-end.md) | Follows many files with ease | PASS (451 words) | 1 (a quote was changed before the final run: PASS) |
+| Carmen (persona-3-regular.md) | Normal file | PASS (401 words) | 1 (a quote was changed before the final run: PASS) |
 
-## Personas and checker verdicts
+No persona needed a failed fix. Daniel and Carmen are built mostly from invented detail (marked with *), because the research has no interview with a client of this kind. Lucia rests on forum posts, not on a Voltia client.
 
-| Persona | Point of the line | Main patterns | Checker verdict | Tries |
-|---|---|---|---|---|
-| Rafael* (`persona-1-hard-end.md`) | Hard end: file very slow or blocked | P1, P2, P3, P4 | PASS (362 words) | 1 |
-| Andres* (`persona-2-easy-end.md`) | Easy end: follows many files with ease | P5, P4, P3 | PASS (374 words) | 1 |
-| Elena* (`persona-3-regular.md`) | Middle: a normal file | P1, P4, P3 | PASS (390 words) | 1 |
-
-No fix was needed, so nothing is still failing.
-
-## What the three share (common jobs to be done)
-- **Know where the file is.** When the file is open, each one wants to know if it moves (P1).
-- **Know how long it will take.** Nobody can say if it is two weeks or two years (P4).
-- **Not be the cause of a stop.** A missed signature or a rejected paper stops the file, and all three depend on small papers (P3).
-- **Trust a named person.** All three came by recommendation and judge Voltia by honesty and by keeping its word (P5).
-- **Know whom to ask.** They do not know who does what between retailer, distributor and installer (P2).
+## What the three share
+- Know where the file is and what comes next (P1, P2).
+- Know what is asked of them and do it right the first time (P3).
+- Be told the truth by the installer, with promises kept (P4).
+- Feel in control without having to chase anyone (P5).
+- All three go to Voltia first, not to the distributor.
 
 ## What changes from one end of the line to the other
+- **Time:** Lucia's wait has no end she can see (P1). Daniel knows files can take two weeks or two years. Carmen cannot tell if her wait is normal.
+- **Who holds the file:** for Lucia the file is stuck between retailer and distributor (P2). Daniel and Carmen do not face this, but Carmen does not know what waits on her.
+- **Cost of not knowing:** Lucia loses hours and peace (P5). Daniel loses almost nothing. Carmen loses a little each week.
+- **Trust:** Lucia keeps trusting Voltia only because Voltia is honest (P4). Daniel trusts from experience. Carmen trusts from the recommendation.
+- **Paperwork:** rejected documents cost Lucia months (P3). For Daniel and Carmen one forgotten signature costs days.
 
-| | Hard end (Rafael) | Regular (Elena) | Easy end (Andres) |
-|---|---|---|---|
-| Wait | Months, deadline passed | Normal, a few weeks* | Short for most files |
-| Feeling | Desperate, helpless | Unsure, a little worried | In control |
-| Calls | Every other day | Writes when a week passes* | Only when a file is quiet |
-| Who he blames | Retailer and distributor | Nobody yet | Nobody |
-| Knowledge of the process | Learns it by force | Knows nothing* | Knows it* |
-| Main job | Find out who is stuck and why | Know if the file moves | Know which files need him |
-
-The need is the same at all three points: news. What changes is how loud the need is. For Rafael it is a daily emergency, for Elena it is a quiet doubt, and for Andres it is a small gap he fills himself.
-
-## Which persona to design for first
-Design for Rafael first. He has the strongest and best-documented pain (P1, P2, P3, P4), and four independent sources describe it. If the team understands his case, it covers the doubts of Elena and Andres, which are the same needs with less force. The middle persona, Elena, has the weakest evidence: the research has no direct voice of a normal client, so she is built from the figures of i-DE and from Toni's account, and the team should test her with real clients next.
+## Who to design for first
+The team should design for Lucia first. Her pains are the strongest in the research and they hit all five patterns, and her need to know where the file is and who holds it is also what Daniel and Carmen need in a smaller way. Voltia hears the same pain from its own clients, who "are constantly contacting us" (Toni), so this end carries the cost for both clients and staff. Carmen is the second choice, because her case is the most common and the easiest to test. One limit: Lucia comes from outside forums, so the team should check her with a real Voltia client.

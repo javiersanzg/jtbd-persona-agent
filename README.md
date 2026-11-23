@@ -76,11 +76,11 @@ python run_agent.py
 ```
 
 ```text
-agent running (sonnet), log: runs/2026-11-23_1740/steps.jsonl
-agent finished after 19 tool calls
-PASS persona-1-hard-end.md (362 words) []
-PASS persona-2-easy-end.md (374 words) []
-PASS persona-3-regular.md (390 words) []
+agent running (sonnet), log: runs/2026-11-23_1833/steps.jsonl
+agent finished after 25 tool calls
+PASS persona-1-hard-end.md (441 words) []
+PASS persona-2-easy-end.md (451 words) []
+PASS persona-3-regular.md (401 words) []
 RESULT: PASS
 ```
 
@@ -97,10 +97,10 @@ Use it on your own research: replace `research/field_notes.md` and the challenge
 
 From the last run (full text in [`output/`](output/) and on the [demo page](https://javiersanzg.github.io/jtbd-persona-agent/)):
 
-> **Rafael\*, the client whose file is stuck:** *"I phone every other day to ask, they always tell me the same thing and give me no solution."*
+> **Lucia\*, the client whose file is stuck:** *«Está todo perfectamente realizado y no puedo tener luz por este trámite»* (Everything is done perfectly and I cannot have electricity because of this paperwork)
 > Hard end of the line: the installation is finished but the distributor file is stuck. The quote is a real forum post. The name, marked with an asterisk, is invented.
 
-The agent's own conclusion: design first for the hard end, because four independent sources describe his pain, and test the regular client with real clients next, because her evidence is the thinnest.
+The agent's own conclusion: design first for the hard end, whose need to know where the file is covers the other two, and check her with a real client of the company, because her voice comes from forums.
 
 ## Project structure
 

@@ -1,42 +1,47 @@
-# Elena* – "They are constantly contacting us because these processes take a long time." (what the office hears from people like her)
+# Carmen, 38* — «¿Esto es normal, o debería preguntar?»*
 
 ## Profile
-Elena*, 36*, owns a house* near Valencia. Has one file open with Voltia: an electrical certificate for a small job*. Found Voltia through a friend*.
+- Teacher living in a flat in Valencia*.
+- Client of Voltia for a solar self-consumption installation*.
+- Her file with i-DE is open and moving at a normal pace.
 
 ## Background
-Her file is normal: most files are active in under 20 days (P4), and hers is somewhere in that range. She has never done this before*. She does not know the retailer from the distributor (P2). Voltia told her the file may take long (P5).
+Carmen chose Voltia after a friend recommended them (P4). Voltia told her the file may take long and was transparent about it (P1). The installation is finished. She had to sign some papers, and she signed them a week late* (P3). She does not know much about how the file works.
 
 ## Goals
-- Close the file and have the certificate in her hands.
-- Know roughly when it will be done.
-- Not lose time on paperwork*.
+- Start using her solar panels as soon as the file allows it.
+- Know roughly when that will be.
+- Not give the file more time than needed.
 
 ## Pains and frustrations
-- She has no news after the first message (P1).
-- She is asked for papers and signatures, and one is missed once (P3).
-- She does not know if "no news" means "all is fine" or "stuck" (P1, P4).
-- She is unsure whom to ask: Voltia, the retailer or the distributor (P2).
+- She cannot tell if three weeks is fast or slow (P1).
+- She does not know what is waiting on her and what is waiting on Iberdrola (P2).
+- A request for one more paper arrives with no warning (P3).
+- She feels she is bothering Voltia when she asks, but she asks anyway (P5).
 
 ## Jobs to be done
-- **Functional:** When I am waiting, I want to know if my file moves, so I can relax.
-- **Personal:** I want to feel that I did my part and nothing depends on me.
-- **Social:** I want to tell my partner* the date, without guessing.
+- Functional: know what step my file is on and what comes next.
+- Personal: feel sure that nothing is lost or forgotten.
+- Social: tell my partner and neighbours a date with some confidence*.
 
 ## A day in their life during the wait
-Her life goes on. Once or twice a week* she wonders about the file. If a week passes with no news*, she writes to Voltia. She answers when she is asked for a paper. She signs it late once* and then the file waits for her (P3).
+She works as normal. Every few days she remembers the file and wonders if she should ask*. On Friday* she sends Voltia a message: «any news?»* She gets an honest answer, often "still waiting" (P4). She feels better for a day, and then the cycle starts again (P5).
 
 ## How they look for news today
-She writes or calls Voltia, as she has no other way to see the file. She reads the answer: "it may take long". She does not read forums*.
+- She writes or calls Voltia, the only contact she has (P5).
+- She does not call the distributor, because she believes it is Voltia's job* (P2).
+- She asks friends who went through the same file*.
 
 ## What makes them trust or doubt an installer
-- Trust: the installer was recommended, is honest, and keeps its word (P5).
-- Doubt: a long quiet, because she cannot tell if the file moves (P1).
-- She will judge Voltia by how the wait felt, not only by the result (P4, P5).
+- Trust: the recommendation and a good first meeting (P4).
+- Trust: Voltia does what it said, at the price it said (P4).
+- Doubt: a vague answer, or no answer for a week (P5).
+- Doubt: Voltia coming back for a photo it forgot (P3).
 
 ## Based on
-- Profile, Background: P4, P2, P5
-- Goals: P4, P1
-- Pains and frustrations: P1, P3, P2
-- Jobs to be done: P1, P4
-- A day, How they look for news: P3, P1
-- Trust or doubt: P5, P4
+- Profile and Background: P4 (recommendation) and P1 (wait length)
+- Goals and Jobs to be done: P2 (who holds the file)
+- Pains: P3 (paperwork), P5 (cost of not knowing)
+- Trust and doubt: P4 (honesty and results)
+
+*Not in the research: invented to make her real.
