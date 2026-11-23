@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JTBD Persona Agent</title>
-<meta name="description" content="An autonomous agent that turns qualitative field research into checked user personas.">
+<meta name="description" content="An agent that turns real user research into user personas, and checks its own work until it passes.">
 <style>:root{
   --paper:#F6F3EC; --paper-2:#EFEADF; --ink:#17181C; --muted:#55575E; --rule:#D9D1C1;
   --teal:#0B5D5A; --teal-soft:#DCEBE8; --pass:#1E6B3A; --pass-bg:#E1F0E4; --fail:#A4231B; --fail-bg:#F7E3E0;
@@ -16,7 +16,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
 h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em}
 h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.3rem);letter-spacing:-.01em}
 h3{font-size:1.25rem}
@@ -69,7 +69,7 @@ section{padding:64px 0}
 .stamp.pass{background:var(--pass-bg);color:var(--pass)}
 .stamp.fail{background:var(--fail-bg);color:var(--fail)}
 
-.pid{font:600 .78em var(--mono);background:var(--teal-soft);color:var(--teal);padding:.05em .35em;border-radius:4px;white-space:nowrap}
+.pid{font:600 max(.78em,12px) var(--mono);background:var(--teal-soft);color:var(--teal);padding:.05em .35em;border-radius:4px;white-space:nowrap}
 .inv{color:var(--fail);font-weight:700}
 
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0}
@@ -120,6 +120,36 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
   table{font-size:.84rem}
   th,td{padding:6px 6px 6px 0}
 }
+/* sections added so the page explains itself */
+.cols{columns:2 320px;column-gap:48px;max-width:62em}
+.cols p{break-inside:avoid}
+.flow{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:f}
+.flow li{background:#FFFDF8;border:1px solid var(--rule);border-radius:12px;padding:18px 18px 16px;position:relative}
+.flow h3{font-size:1.05rem;margin:10px 0 6px}
+.flow p{font-size:.95rem;color:#33353B;margin:0}
+.fn{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font:700 .9rem var(--mono)}
+.sources{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.sources li{display:flex;flex-direction:column;gap:4px;border-left:3px solid var(--teal);background:#FFFDF8;padding:12px 16px;border-radius:0 10px 10px 0}
+.src-type{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:600}
+.src-who{font-weight:600}
+.src-where{font-size:.88rem;color:var(--muted)}
+.pcards{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pcard{background:#FFFDF8;border:1px solid var(--rule);border-radius:14px;padding:20px 22px}
+.pcard-id{margin:0 0 6px}
+.pcard h3{font-size:1.15rem;margin:0 0 10px}
+.pcard-ins{font:italic 1.02rem/1.5 var(--serif);color:#2B2D33}
+.pcard dl{margin:0;font-size:.9rem}
+.pcard dt{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:10px}
+.pcard dd{margin:2px 0 0}
+.pcard .verb{color:#33353B;overflow-wrap:anywhere}
+.legend{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--night-muted);font-size:.92rem}
+.legend .step{display:inline;padding:0}
+.legend .kind{margin-right:6px}
+.report{max-width:62em}
+.howto{padding-left:1.3em;margin:20px 0 16px;max-width:52em}
+.howto li{margin-bottom:.6em;padding-left:.3em}
+.howto code{overflow-wrap:anywhere}
+@media (min-width:761px) and (max-width:1000px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:no-preference){.btn,.tab{transition:background .15s,color .15s,box-shadow .15s}}
 @media print{
   .band{background:#fff;color:#000}.band h2,.step .what{color:#000}.trace::before{background:#999}
@@ -127,40 +157,93 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
   .js .persona[hidden]{display:block}.tabs,.cta,.skip{display:none}
   .pat{background:none}.pat:not([open]) .prose{display:block}
 }
+@media (max-width:760px){.cols{columns:1}.flow,.pcards{grid-template-columns:1fr}.legend{gap:8px 16px}}
 </style>
 </head>
 <body>
 <a class="skip" href="#run">Skip to the run</a>
 <header class="top">
   <div class="wrap">
-    <p class="kicker">Design research &middot; autonomous agent</p>
+    <p class="kicker">Design thinking &middot; autonomous agent</p>
     <h1>JTBD Persona Agent</h1>
-    <p class="lede">Give it interview notes. It finds the patterns, writes the personas, checks each one against a quality bar it cannot argue with, and fixes them until they pass.</p>
+    <p class="lede">An agent that reads real user research, finds the patterns, writes user personas and checks each one with a script until it passes. Nobody edits its work by hand.</p>
     <p class="cta"><a class="btn" href="https://github.com/javiersanzg/jtbd-persona-agent"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg>View the code</a><a class="btn ghost" href="#run"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>See the last run</a></p>
     <dl class="stats">
-      <div><dt>Personas</dt><dd>3/3 <span>pass</span></dd></div>
-      <div><dt>Agent steps</dt><dd>15</dd></div>
-      <div><dt>Patterns</dt><dd>5</dd></div>
+      <div><dt>Research sources</dt><dd>8</dd></div>
+      <div><dt>Patterns found</dt><dd>5</dd></div>
+      <div><dt>Personas passed</dt><dd>3/3</dd></div>
       <div><dt>Last run</dt><dd class="sm">23 Nov 2026, 16:53</dd></div>
     </dl>
   </div>
 </header>
 
 <main>
-<section class="wrap how" aria-labelledby="how-h">
-  <h2 id="how-h">How it works</h2>
-  <ol class="parts">
-    <li><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg><div><h3>Goal</h3><p>Three personas, one per point of the research line, each passing the checker, plus a report that compares them. Only the research as input: no web, no invented data, no solutions.</p></div></li>
-    <li><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></svg><div><h3>Brain</h3><p>Claude, running headless in Claude Code. It chooses its next step on its own.</p></div></li>
-    <li><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></svg><div><h3>Tools</h3><p>Read the research, write files, and run <code>check_persona.py</code>: sections in order, all five patterns used, every section traced to a pattern, invented details flagged, no solutions, one page.</p></div></li>
-    <li><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M184,112a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h64A8,8,0,0,1,184,112Zm-8,24H112a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm48-88V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H72V48H48Zm160,0V48H88V208H208Z"/></svg><div><h3>Memory</h3><p>A step log it writes as it works. Think, act, observe, reflect: every decision is on the record below.</p></div></li>
+<section class="wrap" aria-labelledby="what-h">
+  <h2 id="what-h">What this is</h2>
+  <div class="cols">
+    <p>In design thinking, after the interviews you turn your notes into <strong>personas</strong>: fictional users built from real research, so the team designs for real needs. This agent does that step on its own, for one real challenge: clients of a small electrical installer in Valencia who wait months for their electricity file and do not know what is happening with it.</p>
+    <p>It works in a loop. It writes a persona, a script checks it, and if the script finds a problem the agent fixes exactly that and tries again. The result is three personas, one for each point of the line: the client with the worst wait (<em>hard end</em>), the one with the easiest (<em>easy end</em>) and a normal one (<em>regular</em>).</p>
+  </div>
+  <ol class="flow" aria-label="How a run works">
+    <li><span class="fn">1</span><h3>Research in</h3><p>8 real sources, read only from <code>research/</code>. No web access.</p></li>
+    <li><span class="fn">2</span><h3>Patterns</h3><p>It groups what people said into 5 patterns, <span class="pid">P1</span> to <span class="pid">P5</span>.</p></li>
+    <li><span class="fn">3</span><h3>Write and check</h3><p>Each persona goes through <code>check_persona.py</code>. A FAIL means fix it and check again, up to three times.</p></li>
+    <li><span class="fn">4</span><h3>Report out</h3><p>Three personas, a comparison and which one to design for first.</p></li>
+  </ol>
+</section>
+
+<section class="wrap" aria-labelledby="src-h">
+  <h2 id="src-h">The research it read</h2>
+  <p class="note">Every quote was copied word for word and checked against its source. The names of the company, its staff and its client are changed.</p>
+  <ul class="sources">
+<li><span class="src-type">User (installer side)</span><span class="src-who">Toni, admin and sales at Voltia</span><span class="src-where">Recorded interview &middot; 05/10/2026</span></li>
+<li><span class="src-type">Extreme user, hard end</span><span class="src-who">Julio21, homeowner waiting for an i-DE connection</span><span class="src-where">foroelectricidad.net &middot; 04/06/2025</span></li>
+<li><span class="src-type">Extreme user, hard end</span><span class="src-who">PUMA, home without the power increase since 03/10/2023</span><span class="src-where">nergiza.com &middot; 16/03/2024</span></li>
+<li><span class="src-type">Extreme user, hard end</span><span class="src-who">pantaleon, new supply rejected again and again</span><span class="src-where">foro.clubtesla.es &middot; 19/09/2024</span></li>
+<li><span class="src-type">Extreme user, hard end</span><span class="src-who">Tevi62, self-consumption file rejected four times</span><span class="src-where">nergiza.com &middot; 07-10/10/2023</span></li>
+<li><span class="src-type">Extreme user, easy end</span><span class="src-who">N. M., client of Voltia whose job went well</span><span class="src-where">Google review &middot; 03/05/2026</span></li>
+<li><span class="src-type">Expert</span><span class="src-who">The CEO of i-DE</span><span class="src-where">energias-renovables.com &middot; 26/09/2024</span></li>
+<li><span class="src-type">Expert (manages many files)</span><span class="src-who">Joan Herrera, El Prat city council, 15 installations</span><span class="src-where">energias-renovables.com &middot; 21/06/2023</span></li>
+  </ul>
+</section>
+
+<section class="wrap" aria-labelledby="pat-h">
+  <h2 id="pat-h">The patterns it found</h2>
+  <p class="note">Each pattern is something several people said or did. The <em>insight</em> is the reason behind it. Quotes stay in Spanish, as people wrote them.</p>
+  <ol class="pcards">
+<li class="pcard"><p class="pcard-id"><span class="pid">P1</span></p>
+  <h3>The wait starts the calls; the lack of news makes them repeat</h3>
+  <p class="pcard-ins">People call to find out if their wait is still normal. A call that brings "the same" answer tells them nothing, so they call again.</p>
+  <dl><dt>Job to be done</dt><dd>Functional: know where my file is, what is missing and what comes next</dd><dt>What people said</dt><dd class="verb">Julio21: «llamo por teléfono día sí y día no [...] siempre me dicen lo mismo»; Toni: «están constantemente comunicándose con nosotros»</dd></dl></li>
+<li class="pcard"><p class="pcard-id"><span class="pid">P2</span></p>
+  <h3>Nobody owns the file, so the user becomes its manager</h3>
+  <p class="pcard-ins">Each party answers for one piece and sends the user to the other. Only the user follows the whole file.</p>
+  <dl><dt>Job to be done</dt><dd>Functional: get my file moving without coordinating it myself</dd><dt>What people said</dt><dd class="verb">pantaleon: «la comercializadora me dice que la distribuidora rechaza [...] y la distribuidora que la comercializadora»; PUMA: «se desentiende de este tema»</dd></dl></li>
+<li class="pcard"><p class="pcard-id"><span class="pid">P3</span></p>
+  <h3>Errors from every side appear only after the file is sent</h3>
+  <p class="pcard-ins">Each rejection restarts the wait, and a small reason costs a long delay.</p>
+  <dl><dt>Job to be done</dt><dd>Functional: have the file accepted the first time</dd><dt>What people said</dt><dd class="verb">Tevi62: «la cuarta que los mandan, vuelven a estar rechazados»; Toni: «el cliente se olvida de que tiene que firmar unos papeles»</dd></dl></li>
+<li class="pcard"><p class="pcard-id"><span class="pid">P4</span></p>
+  <h3>Trust travels from person to person</h3>
+  <p class="pcard-ins">Clients come because someone vouched for Voltia, and a happy client thanks a person by name.</p>
+  <dl><dt>Job to be done</dt><dd>Emotional (social): look good before the people I recommend an installer to. Emotional (personal): feel that someone I know is responsible for my case</dd><dt>What people said</dt><dd class="verb">N. M.: «Muchas felicidades Marc»; Toni: «por contactos y recomendaciones»</dd></dl></li>
+<li class="pcard"><p class="pcard-id"><span class="pid">P5</span></p>
+  <h3>Finished work that cannot be used feels unfair</h3>
+  <p class="pcard-ins">Once the work is done, the wait looks like a decision against the user.</p>
+  <dl><dt>Job to be done</dt><dd>Emotional (personal): get my normal life back and stop feeling powerless</dd><dt>What people said</dt><dd class="verb">Julio21: «está todo perfectamente realizado y no puedo tener luz por este trámite»; Tevi62: «impotencia»</dd></dl></li>
   </ol>
 </section>
 
 <section class="band" id="run" aria-labelledby="run-h">
   <div class="wrap">
     <h2 id="run-h">The run, step by step</h2>
-    <p class="note">Written by the agent itself in <code>memory/log.md</code>. The verdicts are re-checked by the runner after the agent stops.</p>
+    <p class="note">The agent writes this log itself while it works, in <code>memory/log.md</code>. After it stops, the runner checks every persona again, so the result does not depend on what the agent says about itself.</p>
+    <ul class="legend" aria-label="Kinds of step">
+      <li class="step think"><span class="kind">THINK</span> decides what to do</li>
+      <li class="step act"><span class="kind">ACT</span> writes a file</li>
+      <li class="step observe"><span class="kind">OBSERVE</span> reads the checker</li>
+      <li class="step reflect"><span class="kind">REFLECT</span> works out what to change</li>
+    </ul>
     <ol class="trace">
 <li class="step think"><span class="n">1</span><span class="kind">THINK</span><span class="what">read research/field_notes.md (8 sources) and check_persona.py rules; output/ is empty; plan: patterns first, then personas 1, 2, 3, then report</span></li>
 <li class="step think"><span class="n">2</span><span class="kind">THINK</span><span class="what">wrote output/patterns.md (<span class="pid">P1</span>-<span class="pid">P5</span>); persona 1 should carry <span class="pid">P2</span>, <span class="pid">P3</span>, <span class="pid">P5</span> strongly</span></li>
@@ -183,17 +266,16 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
 
 <section class="wrap" aria-labelledby="per-h">
   <h2 id="per-h">The personas</h2>
-  <p class="note">Details marked <span class="inv">*</span> are not in the research. <span class="pid">P1</span>&ndash;<span class="pid">P5</span> point to the patterns they come from.</p>
-  <div class="tabs" role="tablist" aria-label="Personas"><button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true" tabindex="0"><span class="pos">Hard end</span><span class="nm">Raul*, the client whose file is stuck</span></button><button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><span class="pos">Easy end</span><span class="nm">Nuria*, the client who follows many files with ease</span></button><button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="pos">Regular</span><span class="nm">Marta*, the client with a normal file</span></button></div>
+  <p class="note">How to read them: <span class="inv">*</span> marks a detail that is not in the research (invented or inferred), and <span class="pid">P1</span> to <span class="pid">P5</span> show which pattern each part comes from.</p>
+  <div class="tabs" role="tablist" aria-label="Personas"><button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true" tabindex="0"><span class="pos">Hard end</span><span class="nm">Raul, the client whose file is stuck</span></button><button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><span class="pos">Easy end</span><span class="nm">Nuria, the client who follows many files with ease</span></button><button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="pos">Regular</span><span class="nm">Marta, the client with a normal file</span></button></div>
   <article class="persona" role="tabpanel" id="p0" aria-labelledby="t0">
   <header class="ph">
     <p class="pos-l">Hard end &middot; A file that is very slow or blocked</p>
-    <h3>Raul*, the client whose file is stuck</h3>
-    <blockquote>&ldquo;&rdquo;</blockquote>
+    <h3>Raul<span class="inv" title="Not in the research">*</span>, the client whose file is stuck</h3>
+    <blockquote>&ldquo;Everything is done perfectly and I cannot have electricity because of this paperwork.&rdquo;</blockquote>
     <p class="meta"><span class="stamp pass"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>PASS</span><span>399 words</span><span>checked by <code>check_persona.py</code></span></p>
   </header>
-  <div class="pbody"><p>&gt; "Everything is done perfectly and I cannot have electricity because of this paperwork."</p>
-<h4>Profile</h4>
+  <div class="pbody"><h4>Profile</h4>
 <p>Homeowner waiting for a new supply or a power increase<span class="inv" title="Not in the research">*</span>. Age 45<span class="inv" title="Not in the research">*</span>. He writes in public forums at night.</p>
 <h4>Background</h4>
 <p>His installer finished the work. The file with i-DE has been open for months, past the legal 30 working days. He has heard of people who wait 6 months. Retailer and distributor each say the other one is the problem. He has called again and again.</p>
@@ -214,12 +296,11 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
 </article><article class="persona" role="tabpanel" id="p1" aria-labelledby="t1">
   <header class="ph">
     <p class="pos-l">Easy end &middot; Follows many files with ease</p>
-    <h3>Nuria*, the client who follows many files with ease</h3>
-    <blockquote>&ldquo;&rdquo;</blockquote>
+    <h3>Nuria<span class="inv" title="Not in the research">*</span>, the client who follows many files with ease</h3>
+    <blockquote>&ldquo;They did it in the agreed time and budget, with a good finish.&rdquo;</blockquote>
     <p class="meta"><span class="stamp pass"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>PASS</span><span>434 words</span><span>checked by <code>check_persona.py</code></span></p>
   </header>
-  <div class="pbody"><p>&gt; "They did it in the agreed time and budget, with a good finish."</p>
-<h4>Profile</h4>
+  <div class="pbody"><h4>Profile</h4>
 <p>Runs projects in Valencia and hires installers often. Judges a job by time and budget, the two things she must answer for. Age and family are not in the research<span class="inv" title="Not in the research">*</span>.</p>
 <h4>Background</h4>
 <p>She gave Voltia a hard project with very little time. It was finished on the agreed time and budget. She plans to hire Voltia again. She thanked one person by name and wrote a public review. She has several jobs open at once<span class="inv" title="Not in the research">*</span>. Many open files are normal for her: another manager has 15 installations at once, though his were stuck for 15 months.</p>
@@ -240,12 +321,11 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
 </article><article class="persona" role="tabpanel" id="p2" aria-labelledby="t2">
   <header class="ph">
     <p class="pos-l">Regular &middot; A normal file</p>
-    <h3>Marta*, the client with a normal file</h3>
-    <blockquote>&ldquo;&rdquo;</blockquote>
+    <h3>Marta<span class="inv" title="Not in the research">*</span>, the client with a normal file</h3>
+    <blockquote>&ldquo;They are constantly contacting us because these processes take a long time." (Toni, about clients like her)&rdquo;</blockquote>
     <p class="meta"><span class="stamp pass"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>PASS</span><span>476 words</span><span>checked by <code>check_persona.py</code></span></p>
   </header>
-  <div class="pbody"><p>&gt; "They are constantly contacting us because these processes take a long time." (Toni, about clients like her)</p>
-<h4>Profile</h4>
+  <div class="pbody"><h4>Profile</h4>
 <p>Homeowner or small business owner<span class="inv" title="Not in the research">*</span> with one electrical file open through Voltia. She came by a recommendation. No forum posts from this point of the line exist in the research, so most of her is built from Toni and i-DE's figures.</p>
 <h4>Background</h4>
 <p>The work is going normally. Voltia told her at the start that the file may take long. Files last from two weeks to two years, and nobody can tell her where hers will fall. i-DE says most files are quick: 93% in under 20 days (self-consumption files only), and 2% take more than 60 days. Age and job are not in the research<span class="inv" title="Not in the research">*</span>.</p>
@@ -266,10 +346,10 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
 </article>
 </section>
 
-<section class="wrap two" aria-labelledby="rep-h">
-  <div>
-    <h2 id="rep-h">What the agent concluded</h2>
-    <div class="prose"><p>Challenge: clients with an Iberdrola file or an electrical certificate in progress do not know what is happening with it. Patterns <span class="pid">P1</span> to <span class="pid">P5</span> are in <code>patterns.md</code>.</p>
+<section class="wrap" aria-labelledby="rep-h">
+  <h2 id="rep-h">What the agent concluded</h2>
+  <p class="note">The agent's own report, as it wrote it.</p>
+  <div class="prose report"><p>Challenge: clients with an Iberdrola file or an electrical certificate in progress do not know what is happening with it. Patterns <span class="pid">P1</span> to <span class="pid">P5</span> are in <code>patterns.md</code>.</p>
 <h3>Personas and checker verdicts</h3>
 <div class="tbl"><table><thead><tr><th scope="col">Persona</th><th scope="col">Point of the line</th><th scope="col">Checker verdict</th><th scope="col">Tries</th><th scope="col">Words</th></tr></thead><tbody><tr><td>persona-1-hard-end.md (Raul<span class="inv" title="Not in the research">*</span>)</td><td>Very slow or blocked file</td><td>PASS</td><td>2 (first try failed on the word "solution")</td><td>399</td></tr><tr><td>persona-2-easy-end.md (Nuria<span class="inv" title="Not in the research">*</span>)</td><td>Follows many files with ease</td><td>PASS</td><td>1</td><td>434</td></tr><tr><td>persona-3-regular.md (Marta<span class="inv" title="Not in the research">*</span>)</td><td>Normal file</td><td>PASS</td><td>1</td><td>476</td></tr></tbody></table></div>
 <p>All five patterns are used across the three personas. Nothing is still failing.</p>
@@ -281,21 +361,24 @@ th{overflow-wrap:normal;word-break:keep-all;font-size:.75rem;letter-spacing:.08e
 <ul><li>Persona 1 is the best supported: four real forum users. These people are not Voltia clients.</li><li>Persona 2 rests on one review (N. M.) and one expert (Herrera, whose files were stuck, not easy). Her "many files" is partly inferred<span class="inv" title="Not in the research">*</span>.</li><li>Persona 3 has no direct voice in the research. It comes from Toni's interview and i-DE's figures, which cover self-consumption files only. It carries the most asterisks.</li></ul>
 <h3>Which persona to design for first</h3>
 <p>Design first for Marta (persona 3). She is the client Toni describes when he says clients are "constantly" in contact, and she is the point where a normal file can turn into a bad one (<span class="pid">P1</span>, then <span class="pid">P3</span> and <span class="pid">P2</span>). Raul is the clearest case, but he is the rarest one in i-DE's figures (2% of files over 60 days), so he works best as a test of the work and not as its target. Because Marta's evidence is the thinnest, the team should confirm her with real Voltia clients before relying on her.</p></div>
-  </div>
-  <details class="pat">
-    <summary>The five patterns it worked from</summary>
-    <div class="prose"><p>Numbering used by all three personas. Quotes are copied from <code>research/field_notes.md</code>.</p>
-<div class="tbl"><table><thead><tr><th scope="col">#</th><th scope="col">Pattern</th><th scope="col">Verbatim</th><th scope="col">Job to be done</th><th scope="col">Insight</th></tr></thead><tbody><tr><td><span class="pid">P1</span></td><td>The wait starts the calls; the lack of news makes them repeat</td><td>Julio21: «llamo por teléfono día sí y día no [...] siempre me dicen lo mismo»; Toni: «están constantemente comunicándose con nosotros»</td><td>Functional: know where my file is, what is missing and what comes next</td><td>People call to find out if their wait is still normal. A call that brings "the same" answer tells them nothing, so they call again.</td></tr><tr><td><span class="pid">P2</span></td><td>Nobody owns the file, so the user becomes its manager</td><td>pantaleon: «la comercializadora me dice que la distribuidora rechaza [...] y la distribuidora que la comercializadora»; PUMA: «se desentiende de este tema»</td><td>Functional: get my file moving without coordinating it myself</td><td>Each party answers for one piece and sends the user to the other. Only the user follows the whole file.</td></tr><tr><td><span class="pid">P3</span></td><td>Errors from every side appear only after the file is sent</td><td>Tevi62: «la cuarta que los mandan, vuelven a estar rechazados»; Toni: «el cliente se olvida de que tiene que firmar unos papeles»</td><td>Functional: have the file accepted the first time</td><td>Each rejection restarts the wait, and a small reason costs a long delay.</td></tr><tr><td><span class="pid">P4</span></td><td>Trust travels from person to person</td><td>N. M.: «Muchas felicidades Marc»; Toni: «por contactos y recomendaciones»</td><td>Emotional (social): look good before the people I recommend an installer to. Emotional (personal): feel that someone I know is responsible for my case</td><td>Clients come because someone vouched for Voltia, and a happy client thanks a person by name.</td></tr><tr><td><span class="pid">P5</span></td><td>Finished work that cannot be used feels unfair</td><td>Julio21: «está todo perfectamente realizado y no puedo tener luz por este trámite»; Tevi62: «impotencia»</td><td>Emotional (personal): get my normal life back and stop feeling powerless</td><td>Once the work is done, the wait looks like a decision against the user.</td></tr></tbody></table></div>
-<h4>Where each pattern is strongest on the line</h4>
-<ul><li>Hard end: <span class="pid">P2</span>, <span class="pid">P3</span>, <span class="pid">P5</span> (and <span class="pid">P1</span> as a routine).</li><li>Easy end: <span class="pid">P4</span> (and <span class="pid">P1</span> in a small, calm form).</li><li>Regular: <span class="pid">P1</span> (the call that asks "is this normal?"), with <span class="pid">P3</span> and <span class="pid">P4</span> as risks.</li></ul></div>
-  </details>
+</section>
+
+<section class="wrap" aria-labelledby="try-h">
+  <h2 id="try-h">Run it yourself</h2>
+  <ol class="howto">
+    <li>Install Python 3.10 or newer and <a href="https://code.claude.com">Claude Code</a>, then log in once by typing <code>claude</code> in a terminal.</li>
+    <li>Download the code: <code>git clone https://github.com/javiersanzg/jtbd-persona-agent.git</code></li>
+    <li>In that folder, run <code>python run_agent.py</code>. It takes a few minutes and ends with <code>RESULT: PASS</code> or <code>FAIL</code>.</li>
+    <li>Read the personas and the report in <code>output/</code>, and every step in <code>memory/log.md</code>. This page is rebuilt at the end of each run.</li>
+  </ol>
+  <p class="note">To use it on another challenge, replace <code>research/field_notes.md</code> with your own notes and change the challenge paragraph in <code>AGENT.md</code>.</p>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,128a8,8,0,0,1-3,6.25l-40,32a8,8,0,1,1-10-12.5L107.19,128,75,102.25a8,8,0,1,1,10-12.5l40,32A8,8,0,0,1,128,128Zm48,24H136a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm56-96V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Z"/></svg>Run it yourself: <code>python run_agent.py</code>. Needs Python 3.10+ and Claude Code. This page is rebuilt after every run.</p>
-    <p class="small">Company and staff names in the research are changed. Icons: Phosphor (MIT).</p>
+    <p><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,128a8,8,0,0,1-3,6.25l-40,32a8,8,0,1,1-10-12.5L107.19,128,75,102.25a8,8,0,1,1,10-12.5l40,32A8,8,0,0,1,128,128Zm48,24H136a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm56-96V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Z"/></svg>Built by Team 3 for the Creativity and Innovation course at EDEM, Valencia.</p>
+    <p class="small">Icons: Phosphor (MIT).</p>
   </div>
 </footer>
 <script>(function () {
