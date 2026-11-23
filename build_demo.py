@@ -146,8 +146,17 @@ def table_rows(text, first_header):
 
 def sources():
     rows = table_rows((HERE / "research" / "field_notes.md").read_text(encoding="utf-8"), "#")
-    return "\n".join(f'<li><span class="src-type">{html.escape(t)}</span><span class="src-who">{inline(w)}</span>'
-                     f'<span class="src-where">{html.escape(s)} &middot; {html.escape(d)}</span></li>' for _, w, t, s, d in rows), len(rows)
+    def kind(s):
+        s = s.lower()
+        if "interview" in s:
+            return "Recorded interview"
+        if "review" in s:
+            return "Google review"
+        if "energias-renovables" in s:
+            return "Magazine interview"
+        return "Forum post"
+    return "\n".join(f'<li><span class="src-type">{kind(s)}</span><span class="src-who">{inline(w)}</span>'
+                     f'<span class="src-where">{html.escape(t)} &middot; {html.escape(d)}</span></li>' for _, w, t, s, d in rows), len(rows)
 
 
 def pattern_cards():
@@ -159,10 +168,10 @@ def pattern_cards():
             rows.append([m.group(1), m.group(2).strip(), field("Verbatim"), field("Job"), field("Insight")])
     cards = []
     for pid, name, verbatim, job, insight in rows:
-        cards.append(f'''<li class="pcard"><p class="pcard-id"><span class="pid">{html.escape(pid)}</span></p>
-  <h3>{html.escape(name)}</h3>
-  <p class="pcard-ins">{inline(insight)}</p>
-  <dl><dt>Job to be done</dt><dd>{inline(job)}</dd><dt>What people said</dt><dd class="verb">{inline(verbatim)}</dd></dl></li>''')
+        cards.append(f'''<li class="pcard"><span class="pid pc-id">{html.escape(pid)}</span>
+  <div><h3>{html.escape(name)}</h3><p class="pcard-ins">{inline(insight)}</p></div>
+  <div><p class="lab">Job to be done</p><p>{inline(job)}</p></div>
+  <div><p class="lab">What people said</p><p class="verb">{inline(verbatim)}</p></div></li>''')
     return "\n".join(cards), len(rows)
 
 
@@ -183,7 +192,7 @@ def build():
         panels.append(f'''<article class="persona" role="tabpanel" id="p{idx}" aria-labelledby="t{idx}">
   <header class="ph">
     <p class="pos-l">{pos} &middot; {sub}</p>
-    <h3>{inline(name)}</h3>
+    <h3>{html.escape(name.replace("*", ""))}</h3>
     {f"<blockquote>&ldquo;{inline(quote)}&rdquo;</blockquote>" if quote else ""}
     <p class="meta">{stamp}<span>{v["words"]} words</span><span>checked by <code>check_persona.py</code></span></p>
   </header>
@@ -191,6 +200,7 @@ def build():
 </article>''')
     passed = sum(1 for v in verdicts if v == "PASS")
     report = (HERE / "output" / "report.md").read_text(encoding="utf-8").split("\n", 1)[1]
+    report = re.sub(r"\s*\(`[^`]+\.md`\)", "", report)  # file names are noise for a reader
     src_html, n_src = sources()
     pat_html, n_pat = pattern_cards()
     css = (HERE / "assets" / "demo.css").read_text(encoding="utf-8")
@@ -210,7 +220,7 @@ def build():
   <div class="wrap">
     <p class="kicker">Design thinking &middot; autonomous agent</p>
     <h1>JTBD Persona Agent</h1>
-    <p class="lede">An agent that reads real user research, finds the patterns, writes user personas and checks each one with a script until it passes. Nobody edits its work by hand.</p>
+    <p class="lede">It reads real user research, writes user personas and checks each one with a script until it passes.</p>
     <p class="cta"><a class="btn" href="{REPO}">{icon("github-logo")}View the code</a><a class="btn ghost" href="#run">{icon("arrow-right")}See the last run</a></p>
     <dl class="stats">
       <div><dt>Research sources</dt><dd>{n_src}</dd></div>
@@ -224,21 +234,18 @@ def build():
 <main>
 <section class="wrap" aria-labelledby="what-h">
   <h2 id="what-h">What this is</h2>
-  <div class="cols">
-    <p>In design thinking, after the interviews you turn your notes into <strong>personas</strong>: fictional users built from real research, so the team designs for real needs. This agent does that step on its own, for one real challenge: clients of a small electrical installer in Valencia who wait months for their electricity file and do not know what is happening with it.</p>
-    <p>It works in a loop. It writes a persona, a script checks it, and if the script finds a problem the agent fixes exactly that and tries again. The result is three personas, one for each point of the line: the client with the worst wait (<em>hard end</em>), the one with the easiest (<em>easy end</em>) and a normal one (<em>regular</em>).</p>
-  </div>
+  <p class="intro">A <strong>persona</strong> is a fictional user built from real research. The challenge: clients of a small electrical installer in Valencia wait months for their electricity file and do not know what is happening. The agent writes three personas: the worst wait (<em>hard end</em>), the easiest (<em>easy end</em>) and a normal one (<em>regular</em>).</p>
   <ol class="flow" aria-label="How a run works">
-    <li><span class="fn">1</span><h3>Research in</h3><p>{n_src} real sources, read only from <code>research/</code>. No web access.</p></li>
-    <li><span class="fn">2</span><h3>Patterns</h3><p>It groups what people said into {n_pat} patterns, <span class="pid">P1</span> to <span class="pid">P{n_pat}</span>.</p></li>
-    <li><span class="fn">3</span><h3>Write and check</h3><p>Each persona goes through <code>check_persona.py</code>. A FAIL means fix it and check again, up to three times.</p></li>
-    <li><span class="fn">4</span><h3>Report out</h3><p>Three personas, a comparison and which one to design for first.</p></li>
+    <li><span class="fn">1</span><h3>Research in</h3><p>{n_src} real sources. No web access.</p></li>
+    <li><span class="fn">2</span><h3>Patterns</h3><p>{n_pat} patterns, <span class="pid">P1</span> to <span class="pid">P{n_pat}</span>.</p></li>
+    <li><span class="fn">3</span><h3>Write and check</h3><p><code>check_persona.py</code> checks each persona. FAIL means fix and retry, up to 3 times.</p></li>
+    <li><span class="fn">4</span><h3>Report out</h3><p>3 personas and a report.</p></li>
   </ol>
 </section>
 
 <section class="wrap" aria-labelledby="src-h">
   <h2 id="src-h">The research it read</h2>
-  <p class="note">Every quote was copied word for word and checked against its source. The names of the company, its staff and its client are changed.</p>
+  <p class="note">This is everything the agent reads, from <code>research/field_notes.md</code>: one recorded interview, four forum posts, one Google review and two magazine interviews with experts. Quotes are word for word. Company and staff names are changed.</p>
   <ul class="sources">
 {src_html}
   </ul>
@@ -246,7 +253,7 @@ def build():
 
 <section class="wrap" aria-labelledby="pat-h">
   <h2 id="pat-h">The patterns it found</h2>
-  <p class="note">Each pattern is something several people said or did. The <em>insight</em> is the reason behind it. Quotes stay in Spanish, as people wrote them.</p>
+  <p class="note">Written by the agent. In italics, the insight: why it happens.</p>
   <ol class="pcards">
 {pat_html}
   </ol>
@@ -255,12 +262,12 @@ def build():
 <section class="band" id="run" aria-labelledby="run-h">
   <div class="wrap">
     <h2 id="run-h">The run, step by step</h2>
-    <p class="note">The agent writes this log itself while it works, in <code>memory/log.md</code>. After it stops, the runner checks every persona again, so the result does not depend on what the agent says about itself.</p>
+    <p class="note">The agent's own log, <code>memory/log.md</code>. The runner checks every persona again at the end.</p>
     <ul class="legend" aria-label="Kinds of step">
-      <li class="step think"><span class="kind">THINK</span> decides what to do</li>
-      <li class="step act"><span class="kind">ACT</span> writes a file</li>
-      <li class="step observe"><span class="kind">OBSERVE</span> reads the checker</li>
-      <li class="step reflect"><span class="kind">REFLECT</span> works out what to change</li>
+      <li class="step think"><span class="kind">THINK</span> plans</li>
+      <li class="step act"><span class="kind">ACT</span> writes</li>
+      <li class="step observe"><span class="kind">OBSERVE</span> reads the check</li>
+      <li class="step reflect"><span class="kind">REFLECT</span> decides what to fix</li>
     </ul>
     <ol class="trace">
 {steps_html}
@@ -270,33 +277,33 @@ def build():
 
 <section class="wrap" aria-labelledby="per-h">
   <h2 id="per-h">The personas</h2>
-  <p class="note">How to read them: <span class="inv">*</span> marks a detail that is not in the research (invented or inferred), and <span class="pid">P1</span> to <span class="pid">P{n_pat}</span> show which pattern each part comes from.</p>
+  <p class="note"><span class="inv">*</span> not in the research. <span class="pid">P1</span> to <span class="pid">P{n_pat}</span>: the pattern each part comes from.</p>
   <div class="tabs" role="tablist" aria-label="Personas">{"".join(tabs)}</div>
   {"".join(panels)}
 </section>
 
 <section class="wrap" aria-labelledby="rep-h">
   <h2 id="rep-h">What the agent concluded</h2>
-  <p class="note">The agent's own report, as it wrote it.</p>
+  <p class="note">The agent's report, unedited.</p>
   <div class="prose report">{md(report, shift=1)}</div>
 </section>
 
 <section class="wrap" aria-labelledby="try-h">
   <h2 id="try-h">Run it yourself</h2>
   <ol class="howto">
-    <li>Install Python 3.10 or newer and <a href="https://code.claude.com">Claude Code</a>, then log in once by typing <code>claude</code> in a terminal.</li>
-    <li>Download the code: <code>git clone {REPO}.git</code></li>
-    <li>In that folder, run <code>python run_agent.py</code>. It takes a few minutes and ends with <code>RESULT: PASS</code> or <code>FAIL</code>.</li>
-    <li>Read the personas and the report in <code>output/</code>, and every step in <code>memory/log.md</code>. This page is rebuilt at the end of each run.</li>
+    <li>Install Python 3.10+ and <a href="https://code.claude.com">Claude Code</a>. Log in once with <code>claude</code>.</li>
+    <li><code>git clone {REPO}.git</code></li>
+    <li><code>python run_agent.py</code>. About 5 minutes. Ends with <code>RESULT: PASS</code> or <code>FAIL</code>.</li>
+    <li>Results in <code>output/</code>, steps in <code>memory/log.md</code>. This page is rebuilt each run.</li>
   </ol>
-  <p class="note">To use it on another challenge, replace <code>research/field_notes.md</code> with your own notes and change the challenge paragraph in <code>AGENT.md</code>.</p>
+  <p class="note">Another challenge: replace <code>research/field_notes.md</code> and the challenge in <code>AGENT.md</code>.</p>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p>{icon("terminal-window")}Built by Team 3 for the Creativity and Innovation course at EDEM, Valencia.</p>
-    <p class="small">Icons: Phosphor (MIT).</p>
+    <p>Team 3 &middot; Creativity and Innovation &middot; EDEM, Valencia</p>
+    <p class="small">Icons: Phosphor (MIT)</p>
   </div>
 </footer>
 <script>{js}</script>
